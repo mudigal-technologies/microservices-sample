@@ -2,6 +2,12 @@
 
 Microservices sample project is a cloud-enabled, microservices based, mobile-ready, scalable, resilient, AngularJS powered HTML5 Application.
 
+### Architecture
+
+Below is the architectural diagram for microservices sample project.
+
+![alt tag](https://raw.githubusercontent.com/vmudigal/microservices-sample/master/documents/Architecture.jpg)
+
 ### Technology
 
 Microservices sample project uses a number of open source projects to work properly:
