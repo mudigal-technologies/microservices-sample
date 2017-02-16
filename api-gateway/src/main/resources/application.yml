@@ -1,0 +1,49 @@
+# GLOBAL CONFIGURATION
+
+spring:
+  application.name: api-gateway
+  velocity.enabled: false
+
+info.component: API-Gateway
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+management:
+  contextPath: /manage
+
+server:
+  contextPath: /
+  port: 8080
+
+zuul:
+  ignoredServices: '*'
+  routes:
+    one:
+      path: /service-one/**
+      serviceId: Service-One
+    two:
+      path: /service-two/**
+      serviceId: Service-Two
+    three:
+      path: /service-three/**
+      serviceId: Service-Three
+
+---
+# DOCKER CONFIGURATION
+spring:
+  profiles: docker
+  cloud:
+    consul:
+      host: consul
+      port: 8500
+      discovery:
+        hostName: api-gateway
+        instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+        healthCheckPath: ${management.contextPath}/health
+        healthCheckInterval: 15s

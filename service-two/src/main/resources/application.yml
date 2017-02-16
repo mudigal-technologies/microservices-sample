@@ -1,0 +1,35 @@
+# GLOBAL CONFIGURATION
+
+spring:
+  application.name: service-two
+  velocity.enabled: false
+
+info.component: Service-Two
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+management:
+  contextPath: /manage
+
+server:
+  contextPath: /
+  port: 8084
+---
+# DOCKER CONFIGURATION
+spring:
+  profiles: docker
+  cloud:
+    consul:
+      host: consul
+      port: 8500
+      discovery:
+        hostName: service-two
+        instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+        healthCheckPath: ${management.contextPath}/health
+        healthCheckInterval: 15s

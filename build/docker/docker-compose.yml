@@ -1,0 +1,129 @@
+version: '2'
+
+services:
+  # ---------------------------
+  # API Gateway
+  # ---------------------------
+  api-gateway:
+    container_name: "api-gateway"
+    hostname: "api-gateway"
+    build: ../../api-gateway/target
+    ports:
+      - "8080:8080"
+    expose:
+      - "8080" 
+    links:
+      - consul
+    environment:
+      - SPRING_PROFILES_ACTIVE=${profile}
+
+  # ---------------------------
+  # Service One
+  # ---------------------------
+  service-one:
+    container_name: "service-one"
+    hostname: "service-one"
+    build: ../../service-one/target
+    ports:
+      - "8082:8082"
+    depends_on:
+      - consul
+    environment:
+      - SPRING_PROFILES_ACTIVE=${profile}
+
+  # ---------------------------
+  # Service Two
+  # ---------------------------
+  service-two:
+    container_name: "service-two"
+    hostname: "service-two"
+    build: ../../service-two/target
+    ports:
+      - "8084:8084"
+    depends_on:
+      - consul
+    environment:
+      - SPRING_PROFILES_ACTIVE=${profile}
+
+  # ---------------------------
+  # Service Three
+  # ---------------------------
+  service-three:
+    container_name: "service-three"
+    hostname: "service-three"
+    build: ../../service-three/target
+    ports:
+      - "8086:8086"
+    depends_on:
+      - consul
+    environment:
+      - SPRING_PROFILES_ACTIVE=${profile}  
+      
+  # ---------------------------
+  # Web Application
+  # ---------------------------
+  web-application:
+    container_name: "web-application"
+    hostname: "web-application"
+    build: ../../web-application/target
+    ports:
+      - "80:80"
+    expose:
+      - "80"
+    environment:
+      - SPRING_PROFILES_ACTIVE=${profile}
+
+  # ---------------------------
+  # Registration and
+  # Discovery Cluster
+  # ---------------------------
+  consul:
+    image: consul:0.7.2
+    container_name: "consul"
+    hostname: "consul"
+    command: consul agent -server -client 0.0.0.0 -ui -bootstrap-expect=3 -data-dir=/consul/data -retry-join=consul2 -retry-join=consul3 -datacenter=blr
+    ports:
+      - "8500:8500"
+      - "8600:8600"
+  consul2:
+    image: consul:0.7.2
+    container_name: "consul-2"
+    hostname: "consul2"
+    expose:
+      - "8500"
+      - "8600"
+    command: consul agent -server -data-dir=/consul/data -retry-join=consul -retry-join=consul3 -datacenter=blr
+    links:
+      - consul
+  consul3:
+    image: consul:0.7.2
+    container_name: "consul-3"
+    hostname: "consul3"
+    expose:
+      - "8500"
+      - "8600"
+    command: consul agent -server -data-dir=/consul/data -retry-join=consul -retry-join=consul2 -datacenter=blr
+    links:
+      - consul
+      - consul2
+
+  # -----------------------------
+  # Infrastructure Visualization
+  # -----------------------------
+  scope:
+    image: weaveworks/scope:1.1.0
+    container_name: weave-scope
+    hostname: weave-scope
+    pid: "host"
+    privileged: true
+    ports:
+      - "4040:4040"
+    expose:
+      - "4040"
+    labels:
+      - "works.weave.role=system"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:rw"
+    command:
+      - "--probe.docker"
+      - "true"
