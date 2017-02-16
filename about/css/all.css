@@ -1,0 +1,37 @@
+header {
+    padding: 50px 50px;
+    margin: 50px 0;
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    overflow-y: hidden;
+    background: url(../img/bg-pattern.png),grey;
+    background: url(../img/bg-pattern.png),-webkit-linear-gradient(to left,grey,black);
+    background: url(../img/bg-pattern.png),linear-gradient(to left,grey,black);
+    color: #fff;
+}
+body {
+    font-family: 'Sansita', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.readme .markdown-body, .readme .plain {
+    padding: 45px;
+    word-wrap: break-word;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.markdown-body {
+    font-size: 15px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.boxed-group {
+    position: relative;
+    margin-bottom: 30px;
+    border-radius: 3px;
+}
