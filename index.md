@@ -1,2 +1,0 @@
-+## Microservices Sample Project
- 
