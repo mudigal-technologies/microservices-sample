@@ -17,11 +17,10 @@
 	</developers>
 	
 	<parent>
-		<groupId>com.mudigal</groupId>
-		<artifactId>microservices-sample</artifactId>
-		<relativePath/> <!-- lookup parent from repository -->
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.1.RELEASE</version>
+    </parent>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
