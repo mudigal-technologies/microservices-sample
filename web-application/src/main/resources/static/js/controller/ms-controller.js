@@ -17,7 +17,7 @@ app.controller('MicroservicesSampleController', ['$scope', '$http',
       $('#service-three').addClass("active");
       $scope.call("three");
     }, $scope.call = function(service_no) {
-      var request = $http.get("http://localhost:8080/service-" 
+      var request = $http.get("/service-" 
     		  + service_no);
       request.success(function(response){
     	  $scope.response = angular.copy(response.data);

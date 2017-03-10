@@ -5,7 +5,8 @@
 
 	<artifactId>service-two</artifactId>
 	<packaging>jar</packaging>
-
+    <groupId>com.mudigal</groupId>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>Service Two</name>
 	<description>Service two in microservices sample project</description>
 
