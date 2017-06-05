@@ -11,19 +11,19 @@
 	<name>Microservices Sample</name>
 	<description>Microservices sample project</description>
 
-    <developers>
+	<developers>
 		<developer>
 			<name>Vijayendra Mudigal</name>
 			<email>vijayendrap@gmail.com</email>
 			<url>http://vijayendra.mudigal.com</url>
 		</developer>
 	</developers>
-	
+
 	<parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.1.RELEASE</version>
-    </parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.5.3.RELEASE</version>
+	</parent>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -32,11 +32,11 @@
 	</properties>
 
 	<modules>
-        <module>api-gateway</module>
-        <module>service-one</module>
-        <module>service-two</module>
-        <module>service-three</module>
-        <module>web-application</module>
-    </modules>
-
+		<module>api-gateway</module>
+		<module>service-one</module>
+		<module>service-two</module>
+		<module>service-three</module>
+		<module>web-application</module>
+	</modules>
+	
 </project>
