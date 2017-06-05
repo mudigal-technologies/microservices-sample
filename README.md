@@ -6,7 +6,7 @@ Microservices sample project is a cloud-enabled, microservices based, mobile-rea
 
 Below is the architectural diagram for microservices sample project.
 
-![alt tag](https://raw.githubusercontent.com/vmudigal/microservices-sample/master/documents/Architecture.jpg)
+![alt tag](https://raw.githubusercontent.com/vmudigal/microservices-sample/version-two/documents/Architectue.jpg)
 
 ### Technology
 
@@ -16,6 +16,9 @@ Microservices sample project uses a number of open source projects to work prope
 * [Zuul] - API Gateway (Load Balancer)
 * [Consul] - Service registration and Discovery
 * [Docker] - Containerization platform
+* [Logstash] - Log collector
+* [Elasticsearch] - Log indexer
+* [Kibana] - Data visualization
 * [AngularJS] - HTML enhanced for web apps!
 * [Bootstrap] - great UI boilerplate for modern web apps
 * [jQuery] - HTML document traversal and manipulation
@@ -55,3 +58,7 @@ Feel free to reach "vijayendrap@gmail.com" incase of any concerns.
    [MySQL]: <https://www.mysql.com>
    [Git]: <https://git-scm.com>
    [Java]: <https://go.java>
+   [Logstash]: <https://www.elastic.co/products/logstash>
+   [Elasticsearch]: <https://www.elastic.co/products/elasticsearch>
+   [Kibana]: <https://www.elastic.co/products/kibana>
+   
