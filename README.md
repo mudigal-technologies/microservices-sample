@@ -1,4 +1,9 @@
-# Microservices Sample Project
+# What is it?
+"Microservices", a trending buzz word nowadays. What problems does it solve?
+
+Many organizations nowadays are driving the technology migrations and one of the biggest challenges is to migrate from monolithic application to micro-services based application.
+
+Below is an example application which you could refer and get the answers for the problems that it solves by yourself. In the example below, there are multiple services that could be deployed in any datacenters on the global. When we start a service, it would be registered to the discovery and registration server (Consul). When one service (say service-one) needs to access a resource from another service (say service-two), all it has to do is ask discovery and registration server (Consul) to give one of the service-one instance information.
 
 Microservices sample project is a cloud-enabled, microservices based, mobile-ready, scalable, resilient, AngularJS powered HTML5 Application.
 
@@ -32,7 +37,7 @@ Microservices sample project uses a number of open source projects to work prope
 
 ### Development
 
-Microservices sample project requires [Docker](https://www.docker.com/) for bringing up the build.
+Below are the steps to bring up the development environment and get started.
 
 1) Install Git, Java, Maven and Docker</br>
 2) Clone the project using https://github.com/vmudigal/microservices-sample.git</br>
