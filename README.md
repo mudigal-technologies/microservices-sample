@@ -12,7 +12,7 @@ Microservices sample project is a cloud-enabled, microservices based, mobile-rea
 
 Below is the architectural diagram for microservices sample project.
 
-![alt tag](https://raw.githubusercontent.com/vmudigal/microservices-sample/version-two/documents/Architectue.jpg)
+![alt tag](https://raw.githubusercontent.com/vmudigal/microservices-sample/master/documents/Architectue.jpg)
 
 ### Technology
 
