@@ -4,15 +4,43 @@
 
 Many organizations nowadays are driving the technology migrations and one of the biggest challenges is to migrate from monolithic application to micro-services based application.
 
-Below is an example application which you could refer and get the answers for the problems that it solves by yourself. In the example below, there are multiple services that could be deployed in any datacenters on the global. When we start a service, it would be registered to the discovery and registration server (Consul). When one service (say service-one) needs to access a resource from another service (say service-two), all it has to do is ask discovery and registration server (Consul) to give one of the service-one instance information.
+This mircoservices-sample project demonstrates how multiple services run independently leveraging on the best microservices patterns to enable scale, performance and resilience.
 
-Microservices sample project is a cloud-enabled, microservices based, mobile-ready, scalable, resilient, AngularJS powered HTML5 Application.
+### User case
+
+The sample application has three services namely service-one, service-two and service-three. Each of the service has its own database service-one-db, service-two-db and service-three-db respectively. During the startup of the services, it persists the service name and an auto generated UUID in its perspective database and sends the data to the RabbitMQ exchange which then broadcasts the data to all the queues based on the routing key. Every microservices listens to its own RabbitMQ queue and keeps updating the database as and when it receives the data.
+
+Below are the screens of the application.
+
+![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-three/documents/app-screens/01.%20Home.png?raw=true)
+
+When you click on the tab's one, two or three the data that you see on the screen is based on the data fetched by the respective service's database.
+
+![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-three/documents/app-screens/02.%20One.png?raw=true)
+
+Notice that the UUID generated for service-one which is in service-one-db is in sync with service-two and service-three tabs which is achieved by RabbitMQ. 
+
+![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-three/documents/app-screens/03.%20Two.png?raw=true)
+
+![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-three/documents/app-screens/04.%20Three.png?raw=true)
+
+### Service Registration
+
+In this example project, there are three services that could be deployed in any datacenters on the globe. During the initialization of a service, it would be registered to the discovery and registration server (which in our example is Hashicorp's Consul).
+
+![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-three/documents/sequence-diagram/microservices-sample%20(service%20registration%20sequence).png?raw=true)
+
+#### Service Discovery
+
+ When one service (say api-gateway) needs to access a resource from another service (say service-one), all it has to do is ask discovery and registration server (Consul) to give one of the service-one's instance information.
+ 
+![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-three/documents/sequence-diagram/microservices-sample%20(service%20discovery%20sequence).png?raw=true)
 
 ### Architecture
 
 Below is the architectural diagram for microservices sample project.
 
-![alt tag](https://raw.githubusercontent.com/vmudigal/microservices-sample/master/documents/Architectue.jpg)
+![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-three/documents/Architecture.jpg?raw=true)
 
 ### Technology
 
@@ -22,12 +50,14 @@ Microservices sample project uses a number of open source projects to work prope
 * [Zuul] - API Gateway (Load Balancer)
 * [Consul] - Service registration and Discovery
 * [Docker] - Containerization platform
+* [RabbitMQ] - asynchronous microservices messaging.
 * [Logstash] - Log collector
 * [Elasticsearch] - Log indexer
 * [Kibana] - Data visualization
 * [AngularJS] - HTML enhanced for web apps!
 * [Bootstrap] - great UI boilerplate for modern web apps
 * [jQuery] - HTML document traversal and manipulation
+* [Swagger] - API documentation
 
 ### Tools
 
@@ -41,10 +71,11 @@ Microservices sample project uses a number of open source projects to work prope
 Below are the steps to bring up the development environment and get started.
 
 1) Install Git, Java, Maven and Docker</br>
-2) Clone the project using https://github.com/vmudigal/microservices-sample.git</br>
-3) Execute "cd /microservices-sample/build/docker/scripts/"</br>
-4) To deploy docker please run "./deploy.sh docker".</br>
-5) Access the Application at http://localhost/</br></br>
+2) For the project using https://github.com/vmudigal/microservices-sample.git
+3) Clone the fork using https://github.com/{YOUR_GIT_ID}/microservices-sample.git</br>
+4) Execute "cd /microservices-sample/build/docker/scripts/"</br>
+5) To deploy docker please run "./deploy.sh docker".</br>
+6) Access the Application at http://localhost/</br></br>
 
 ### Help
 
@@ -67,4 +98,6 @@ Feel free to reach "vijayendrap@gmail.com" incase of any concerns.
    [Logstash]: <https://www.elastic.co/products/logstash>
    [Elasticsearch]: <https://www.elastic.co/products/elasticsearch>
    [Kibana]: <https://www.elastic.co/products/kibana>
+   [RabbitMQ]: <https://www.rabbitmq.com/>
+   [Swagger]: <https://swagger.io/>
    
