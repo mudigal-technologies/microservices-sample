@@ -17,11 +17,16 @@ app.controller('MicroservicesSampleController', ['$scope', '$http',
       $('#service-three').addClass("active");
       $scope.call("three");
     }, $scope.call = function(service_no) {
-      var request = $http.get("http://localhost:8080/service-" 
-    		  + service_no);
-      request.success(function(response){
-    	  $scope.response = angular.copy(response.data);
-      });
-    }
-  }
+         $http({
+        		 method: 'GET',
+        		 url: 'http://localhost:8080/service-' + service_no
+         }).then(function onSuccess(response) {
+    	         $scope.response = angular.copy(response.data);
+    	         $scope.error = null;
+         }).catch(function onError(response) {
+    	         $scope.error = "service " + service_no + " is not up"; 
+    	         $scope.response = null;
+         });
+      }
+   }
 ]);

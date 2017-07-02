@@ -3,6 +3,15 @@
 spring:
   application.name: service-one
   velocity.enabled: false
+  datasource:
+    testWhileIdle: true
+    validationQuery: SELECT 1
+  jackson.serializationindent_output: true
+  jpa:
+    hibernate:
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    show-sql: true
 
 info.component: Service-One
 
@@ -21,6 +30,21 @@ server:
   contextPath: /
   port: 8082
 ---
+#DEFAULT CONFIGURATION
+spring:
+  profiles: default
+  h2.console:
+    enabled: true
+    path: /h2
+  datasource:
+    url=jdbc:h2:mem:service-one-db;MV_STORE=FALSE;MVCC_STORE=FALSE
+    username=sa
+    password=
+    driver-class-name=org.h2.Driver
+  jpa: 
+    hibernate:
+      ddl-auto: update
+---
 # DOCKER CONFIGURATION
 spring:
   profiles: docker
@@ -33,3 +57,17 @@ spring:
         instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
         healthCheckPath: ${management.contextPath}/health
         healthCheckInterval: 15s
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://service-one-db/service-one?createDatabaseIfNotExist=true
+    username: service-one
+    password: service-one
+  jpa: 
+    hibernate:
+      ddl-auto: update
+  rabbitmq:
+    host: rabbit
+    port: 5672
+    username: mudigal
+    password: mudigal
+    virtualHost: /

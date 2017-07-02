@@ -1,4 +1,5 @@
 FROM openjdk:8-jre-alpine
+
 MAINTAINER vijayendrap@gmail.com
 
 # environment

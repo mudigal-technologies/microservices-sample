@@ -28,10 +28,29 @@ services:
     ports:
       - "8082:8082"
     depends_on:
+      - rabbit
+      - service-one-db
       - consul
       - logstash
     environment:
       - SPRING_PROFILES_ACTIVE=${profile}
+  
+  # ---------------------------
+  # Service One Database
+  # ---------------------------
+  service-one-db:
+    container_name: "service-one-db"
+    hostname: "serviceonedb"
+    image: "mysql/mysql-server:5.7"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root123
+      - MYSQL_DATABASE=service-one
+      - MYSQL_USER=service-one 
+      - MYSQL_PASSWORD=service-one
+    ports:
+      - "3308:3306"
+    expose:
+      - "3308"
 
   # ---------------------------
   # Service Two
@@ -43,10 +62,29 @@ services:
     ports:
       - "8084:8084"
     depends_on:
+      - rabbit
+      - service-two-db
       - consul
       - logstash
     environment:
       - SPRING_PROFILES_ACTIVE=${profile}
+  
+  # ---------------------------
+  # Service Two Database
+  # ---------------------------
+  service-two-db:
+    container_name: "service-two-db"
+    hostname: "servicetwodb"
+    image: "mysql/mysql-server:5.7"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root123
+      - MYSQL_DATABASE=service-two
+      - MYSQL_USER=service-two 
+      - MYSQL_PASSWORD=service-two
+    ports:
+      - "3310:3306"
+    expose:
+      - "3310"
 
   # ---------------------------
   # Service Three
@@ -58,10 +96,29 @@ services:
     ports:
       - "8086:8086"
     depends_on:
+      - rabbit
+      - service-three-db
       - consul
       - logstash
     environment:
-      - SPRING_PROFILES_ACTIVE=${profile}  
+      - SPRING_PROFILES_ACTIVE=${profile}
+  
+  # ---------------------------
+  # Service Three Database
+  # ---------------------------
+  service-three-db:
+    container_name: "service-three-db"
+    hostname: "servicethreedb"
+    image: "mysql/mysql-server:5.7"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root123
+      - MYSQL_DATABASE=service-three
+      - MYSQL_USER=service-three 
+      - MYSQL_PASSWORD=service-three
+    ports:
+      - "3312:3306"
+    expose:
+      - "3312"
       
   # ---------------------------
   # Web Application
@@ -78,6 +135,25 @@ services:
       - "80"
     environment:
       - SPRING_PROFILES_ACTIVE=${profile}
+
+  # ---------------------------
+  # Messaging Queue Cluster
+  # ---------------------------
+  rabbit:
+    image: rabbitmq:3.6.6-management-alpine
+    container_name: rabbit-mq
+    hostname: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    expose:
+      - "15672"
+    environment:
+      - CLUSTERED=true
+      - RAM_NODE=true
+      - CLUSTER_WITH=rabbit
+      - RABBITMQ_DEFAULT_USER=mudigal
+      - RABBITMQ_DEFAULT_PASS=mudigal
 
   # ---------------------------
   # Registration and
@@ -159,7 +235,7 @@ services:
     hostname: elasticsearch
     environment:
       - "cluster.name=elasticsearch"
-      - "ES_JAVA_OPTS=-Xms512m -Xmx4028m"
+      - "ES_JAVA_OPTS=-Xms512m -Xmx2048m"
       - "discovery.zen.ping.unicast.hosts=127.0.0.1"
     ulimits:
       memlock:
