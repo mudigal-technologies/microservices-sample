@@ -6,7 +6,7 @@ Many organizations nowadays are driving the technology migrations and one of the
 
 This mircoservices-sample project demonstrates how multiple services run independently leveraging on the best microservices patterns to enable scale, performance and resilience.
 
-### User case
+### Use case
 
 The sample application has three services namely service-one, service-two and service-three. Each of the service has its own database service-one-db, service-two-db and service-three-db respectively. During the startup of the services, it persists the service name and an auto generated UUID in its perspective database and sends the data to the RabbitMQ exchange which then broadcasts the data to all the queues based on the routing key. Every microservices listens to its own RabbitMQ queue and keeps updating the database as and when it receives the data.
 
@@ -14,11 +14,11 @@ Below are the screens of the application.
 
 ![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-three/documents/app-screens/01.%20Home.png?raw=true)
 
-When you click on the tab's one, two or three the data that you see on the screen is based on the data fetched by the respective service's database.
+Clicking on the tab's one, two or three the data that you see on the screen is based on the data fetched by the respective service by calling its database.
 
 ![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-three/documents/app-screens/02.%20One.png?raw=true)
 
-Notice that the UUID generated for service-one which is in service-one-db is in sync with service-two and service-three tabs which is achieved by RabbitMQ. 
+Notice that the UUID generated for service-one which lies in service-one-db is in sync with service-two and service-three tabs which is achieved by RabbitMQ (asychronous communication between microservices). 
 
 ![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-three/documents/app-screens/03.%20Two.png?raw=true)
 
@@ -26,7 +26,7 @@ Notice that the UUID generated for service-one which is in service-one-db is in 
 
 ### Service Registration
 
-In this example project, there are three services that could be deployed in any datacenters on the globe. During the initialization of a service, it would be registered to the discovery and registration server (which in our example is Hashicorp's Consul).
+During the initialization of a service, it would get registered to the discovery and registration server (which in our example is Hashicorp's Consul).
 
 ![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-three/documents/sequence-diagram/microservices-sample%20(service%20registration%20sequence).png?raw=true)
 
