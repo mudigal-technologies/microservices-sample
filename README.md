@@ -1,6 +1,11 @@
 # Microservices Sample
 
 [![Build Status](https://travis-ci.org/vmudigal/microservices-sample.svg?branch=master)](https://travis-ci.org/vmudigal/microservices-sample)
+[![Docker Repository on Quay](https://quay.io/repository/microservices-sample/api-gateway/status "Docker Repository on Quay")](https://quay.io/repository/microservices-sample/api-gateway)
+[![Docker Repository on Quay](https://quay.io/repository/microservices-sample/service-one/status "Docker Repository on Quay")](https://quay.io/repository/microservices-sample/service-one)
+[![Docker Repository on Quay](https://quay.io/repository/microservices-sample/service-two/status "Docker Repository on Quay")](https://quay.io/repository/microservices-sample/service-two)
+[![Docker Repository on Quay](https://quay.io/repository/microservices-sample/service-three/status "Docker Repository on Quay")](https://quay.io/repository/microservices-sample/service-three)
+[![Docker Repository on Quay](https://quay.io/repository/microservices-sample/web-application/status "Docker Repository on Quay")](https://quay.io/repository/microservices-sample/web-application)
 
 ### What is it?
 
