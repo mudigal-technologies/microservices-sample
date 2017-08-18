@@ -5,8 +5,8 @@ MAINTAINER vijayendrap@gmail.com
 # environment
 EXPOSE 8082
 
-# executable
-ADD @project.artifactId@-@project.version@.jar app.jar
+# executable ADD @project.artifactId@-@project.version@.jar app.jar
+ADD service-one.jar app.jar
 
 # run app as user 'booter'
 RUN /bin/sh -c 'touch /app.jar'
