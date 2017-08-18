@@ -11,23 +11,23 @@ after_success:
     docker login -u="$QUAY_USERNAME" -p="$QUAY_PASSWORD" quay.io;
     
     docker build -t api-gateway:latest api-gateway/target/;
-    docker tag api-gateway microservices-sample/api-gateway:latest;
-    docker push microservices-sample/api-gateway:latest;
+    docker tag api-gateway quay.io/microservices-sample/api-gateway:latest;
+    docker push quay.io/microservices-sample/api-gateway:latest;
     
     docker build -t service-one:latest service-one/target/;
-    docker tag service-one microservices-sample/service-one:latest;
-    docker push microservices-sample/service-one;
+    docker tag service-one quay.io/microservices-sample/service-one:latest;
+    docker push quay.io/microservices-sample/service-one:latest;
     
     docker build -t service-two:latest service-two/target/;
-    docker tag service-two microservices-sample/service-two:latest;
-    docker push microservices-sample/service-two;
+    docker tag service-two quay.io/microservices-sample/service-two:latest;
+    docker push quay.io/microservices-sample/service-two:latest;
     
     docker build -t service-three:latest service-three/target/;
-    docker tag service-three microservices-sample/service-three:latest;
-    docker push microservices-sample/service-three:latest;
+    docker tag service-three quay.io/microservices-sample/service-three:latest;
+    docker push quay.io/microservices-sample/service-three:latest;
     
     docker build -t web-application:latest web-application/target/;
-    docker tag web-application microservices-sample/web-application:latest;
-    docker push microservices-sample/web-application:latest;
+    docker tag web-application quay.io/microservices-sample/web-application:latest;
+    docker push quay.io/microservices-sample/web-application:latest;
     
     fi
