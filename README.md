@@ -1,3 +1,7 @@
+# Microservices Sample
+
+[![Build Status](https://travis-ci.org/vmudigal/microservices-sample.svg?branch=master)](https://travis-ci.org/vmudigal/microservices-sample)
+
 ### What is it?
 
 "Microservices", a trending buzz word nowadays. What problems does it solve?
