@@ -10,27 +10,22 @@ after_success:
     
     docker login -u="$QUAY_USERNAME" -p="$QUAY_PASSWORD" quay.io;
     
-    - echo "Building api-gateway image"
     docker build -t api-gateway:latest api-gateway/target/;
     docker tag api-gateway microservices-sample/api-gateway:latest;
     docker push microservices-sample/api-gateway:latest;
     
-    - echo "Building service-one image"
     docker build -t service-one:latest service-one/target/;
     docker tag service-one microservices-sample/service-one:latest;
     docker push microservices-sample/service-one;
     
-    - echo "Building service-two image"
     docker build -t service-two:latest service-two/target/;
     docker tag service-two microservices-sample/service-two:latest;
     docker push microservices-sample/service-two;
     
-    - echo "Building service-three image"
     docker build -t service-three:latest service-three/target/;
     docker tag service-three microservices-sample/service-three:latest;
     docker push microservices-sample/service-three:latest;
     
-    - echo "Building web-application image"
     docker build -t web-application:latest web-application/target/;
     docker tag web-application microservices-sample/web-application:latest;
     docker push microservices-sample/web-application:latest;
