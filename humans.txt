@@ -8,7 +8,7 @@ Location: Bengaluru, India.
 /* SITE */
 
 Standards: HTML, CSS, Java.
-Components: Zuul, Consul, AngularJS, JQuery, Bootstrap, Dockerfile, Dockercompose, Microservices-architecture, API Gateway, Elasticsearch, Logstash, Kibana, Weavescope, Springboot, Logback, RabbitMQ, MySQL, Netflix OSS, Swagger,Dozer Mapping, DevTools, Actuator, Management API's.
+Components: Zuul, Consul, Angular, Node, JQuery, Bootstrap, Dockerfile, Dockercompose, Microservices-architecture, API Gateway, Elasticsearch, Logstash, Kibana, Weavescope, Springboot, Logback, RabbitMQ, MySQL, Netflix OSS, Swagger,Dozer Mapping, DevTools, Actuator, Management API's.
 Software: Maven, Git, Eclipse IDE, Docker, MySQL Server.
 
 

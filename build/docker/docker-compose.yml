@@ -1,4 +1,4 @@
-version: '2'
+version: '3.1'
 
 services:
   # ---------------------------
@@ -17,6 +17,8 @@ services:
       - logstash
     environment:
       - SPRING_PROFILES_ACTIVE=${profile}
+    networks:
+      - backend
 
   # ---------------------------
   # Service One
@@ -34,7 +36,9 @@ services:
       - logstash
     environment:
       - SPRING_PROFILES_ACTIVE=${profile}
-  
+    networks:
+      - backend
+
   # ---------------------------
   # Service One Database
   # ---------------------------
@@ -51,6 +55,8 @@ services:
       - "3308:3306"
     expose:
       - "3308"
+    networks:
+      - backend
 
   # ---------------------------
   # Service Two
@@ -68,7 +74,9 @@ services:
       - logstash
     environment:
       - SPRING_PROFILES_ACTIVE=${profile}
-  
+    networks:
+      - backend
+
   # ---------------------------
   # Service Two Database
   # ---------------------------
@@ -85,6 +93,8 @@ services:
       - "3310:3306"
     expose:
       - "3310"
+    networks:
+      - backend
 
   # ---------------------------
   # Service Three
@@ -102,7 +112,9 @@ services:
       - logstash
     environment:
       - SPRING_PROFILES_ACTIVE=${profile}
-  
+    networks:
+      - backend
+
   # ---------------------------
   # Service Three Database
   # ---------------------------
@@ -119,22 +131,25 @@ services:
       - "3312:3306"
     expose:
       - "3312"
-      
+    networks:
+      - backend
+
   # ---------------------------
   # Web Application
   # ---------------------------
   web-application:
-    container_name: "web-application"
-    hostname: "web-application"
-    build: ../../web-application/target
+    container_name: web-application
+    image: nginx
+    build:
+      context: ../../web-application
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ./dist:/usr/share/nginx/html
     ports:
-      - "80:80"
-    depends_on:
-      - logstash
-    expose:
-      - "80"
-    environment:
-      - SPRING_PROFILES_ACTIVE=${profile}
+      - "80:4200"
+
+    networks:
+      - frontend
 
   # ---------------------------
   # Messaging Queue Cluster
@@ -154,6 +169,8 @@ services:
       - CLUSTER_WITH=rabbit
       - RABBITMQ_DEFAULT_USER=mudigal
       - RABBITMQ_DEFAULT_PASS=mudigal
+    networks:
+      - backend
 
   # ---------------------------
   # Registration and
@@ -167,6 +184,8 @@ services:
     ports:
       - "8500:8500"
       - "8600:8600"
+    networks:
+      - backend
   consul2:
     image: consul:0.7.2
     container_name: "consul-2"
@@ -177,6 +196,8 @@ services:
     command: consul agent -server -data-dir=/consul/data -retry-join=consul -retry-join=consul3 -datacenter=blr
     links:
       - consul
+    networks:
+      - backend
   consul3:
     image: consul:0.7.2
     container_name: "consul-3"
@@ -188,6 +209,8 @@ services:
     links:
       - consul
       - consul2
+    networks:
+      - backend
 
   # -----------------------------
   # Infrastructure Visualization
@@ -209,6 +232,8 @@ services:
     command:
       - "--probe.docker"
       - "true"
+    networks:
+      - backend
 
   # -----------------------------
   # Log Vizualization 
@@ -225,6 +250,8 @@ services:
       - ELASTICSEARCH_URL=http://elasticsearch:9200
     depends_on:
       - elasticsearch
+    networks:
+      - backend
 
   # -----------------------------
   # Indexing Server
@@ -244,12 +271,13 @@ services:
       nofile:
         soft: 65536
         hard: 65536
-    mem_limit: 4g
     ports:
       - "9200:9200"
       - "9300:9300"
     expose:
       - "9200"
+    networks:
+      - backend
 
   # -----------------------------
   # Log Collection and Format
@@ -268,3 +296,25 @@ services:
       logstash --debug -e 'input { tcp { port => 5000 codec => json { charset => "UTF-8" } } } output { elasticsearch { hosts => "elasticsearch:9200" } }'
     depends_on:
       - elasticsearch
+    networks:
+      - backend
+
+  cadvisor:
+    container_name: cadvisor
+    image: google/cadvisor
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:rw
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    ports:
+      - "8200:8080"
+    networks:
+      - backend
+
+networks:
+  frontend:
+    driver: bridge
+  backend:
+    driver: bridge
+  

@@ -63,7 +63,7 @@ Microservices sample project uses a number of open source projects to work prope
 * [Logstash] - Log collector
 * [Elasticsearch] - Log indexer
 * [Kibana] - Data visualization
-* [AngularJS] - HTML enhanced for web apps!
+* [Angular] - HTML enhanced for web apps!
 * [Bootstrap] - great UI boilerplate for modern web apps
 * [jQuery] - HTML document traversal and manipulation
 * [Swagger] - API documentation
@@ -94,7 +94,7 @@ Feel free to reach "vijayendrap@gmail.com" incase of any concerns.
 
    [Bootstrap]: <http://twitter.github.com/bootstrap/>
    [jQuery]: <http://jquery.com>
-   [AngularJS]: <http://angularjs.org>
+   [Angular]: <https://angular.io/>
    [SpringBoot]: <https://projects.spring.io/spring-boot/>
    [Consul]: <https://www.consul.io>
    [Docker]: <https://www.docker.com>

@@ -1,0 +1,13 @@
+<div *ngIf="response != undefined">
+  <h3 style="text-align: center; margin-top: 200px; color: grey">
+    {{response.originalName}} : {{response.originalValue}}</h3>
+  <div style="margin-top: 25px;">
+    <div style="text-align: center; margin-top: 5px; color: #ff9800"
+         *ngFor="let key of objectKeys(response.remainingNameValuePair)">
+      {{key}} : {{response.remainingNameValuePair[key]}}
+    </div>
+  </div>
+</div>
+<div *ngIf="response == undefined">
+  <h3 style="text-align: center; margin-top: 200px; color: grey" [innerHTML]="error"></h3>
+</div>
