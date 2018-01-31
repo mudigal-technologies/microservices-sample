@@ -21,35 +21,35 @@ The sample application has three services namely service-one, service-two and se
 
 Below are the screens of the application.
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-three/documents/app-screens/01.%20Home.png?raw=true)
+![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-4/documents/app-screens/01.%20Home.png?raw=true)
 
 Clicking on the tab's one, two or three the data that you see on the screen is based on the data fetched by the respective service by calling its database.
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-three/documents/app-screens/02.%20One.png?raw=true)
+![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-4/documents/app-screens/02.%20One.png?raw=true)
 
 Notice that the UUID generated for service-one which lies in service-one-db is in sync with service-two and service-three tabs which is achieved by RabbitMQ (asychronous communication between microservices). 
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-three/documents/app-screens/03.%20Two.png?raw=true)
+![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-4/documents/app-screens/03.%20Two.png?raw=true)
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-three/documents/app-screens/04.%20Three.png?raw=true)
+![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-4/documents/app-screens/04.%20Three.png?raw=true)
 
 ### Service Registration
 
 During the initialization of a service, it would get registered to the discovery and registration server (which in our example is Hashicorp's Consul).
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-three/documents/sequence-diagram/microservices-sample%20(service%20registration%20sequence).png?raw=true)
+![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-4/documents/sequence-diagram/microservices-sample%20(service%20registration%20sequence).png?raw=true)
 
 #### Service Discovery
 
  When one service (say api-gateway) needs to access a resource from another service (say service-one), all it has to do is ask discovery and registration server (Consul) to give one of the service-one's instance information.
  
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-three/documents/sequence-diagram/microservices-sample%20(service%20discovery%20sequence).png?raw=true)
+![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-4/documents/sequence-diagram/microservices-sample%20(service%20discovery%20sequence).png?raw=true)
 
 ### Architecture
 
 Below is the architectural diagram for microservices sample project.
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-three/documents/Architecture.jpg?raw=true)
+![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-4/documents/Architecture.jpg?raw=true)
 
 ### Technology
 
