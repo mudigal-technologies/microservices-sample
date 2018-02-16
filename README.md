@@ -15,41 +15,45 @@ Many organizations nowadays are driving the technology migrations and one of the
 
 This mircoservices-sample project demonstrates how multiple services run independently leveraging on the best microservices patterns to enable scale, performance and resilience.
 
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=AYcsnuIOW2M" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/AYcsnuIOW2M/0.jpg" alt="https://www.youtube.com/watch?v=AYcsnuIOW2M"/></a>
+</p>
+
 ### Use case
 
 The sample application has three services namely service-one, service-two and service-three. Each of the service has its own database service-one-db, service-two-db and service-three-db respectively. During the startup of the services, it persists the service name and an auto generated UUID in its perspective database and sends the data to the RabbitMQ exchange which then broadcasts the data to all the queues based on the routing key. Every microservices listens to its own RabbitMQ queue and keeps updating the database as and when it receives the data.
 
 Below are the screens of the application.
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-4/documents/app-screens/01.%20Home.png?raw=true)
+![alt tag](https://github.com/vmudigal/microservices-sample/blob/master/documents/app-screens/01.%20Home.png?raw=true)
 
 Clicking on the tab's one, two or three the data that you see on the screen is based on the data fetched by the respective service by calling its database.
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-4/documents/app-screens/02.%20One.png?raw=true)
+![alt tag](https://github.com/vmudigal/microservices-sample/blob/master/documents/app-screens/02.%20One.png?raw=true)
 
 Notice that the UUID generated for service-one which lies in service-one-db is in sync with service-two and service-three tabs which is achieved by RabbitMQ (asychronous communication between microservices). 
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-4/documents/app-screens/03.%20Two.png?raw=true)
+![alt tag](https://github.com/vmudigal/microservices-sample/blob/master/documents/app-screens/03.%20Two.png?raw=true)
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-4/documents/app-screens/04.%20Three.png?raw=true)
+![alt tag](https://github.com/vmudigal/microservices-sample/blob/master/documents/app-screens/04.%20Three.png?raw=true)
 
 ### Service Registration
 
 During the initialization of a service, it would get registered to the discovery and registration server (which in our example is Hashicorp's Consul).
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-4/documents/sequence-diagram/microservices-sample%20(service%20registration%20sequence).png?raw=true)
+![alt tag](https://github.com/vmudigal/microservices-sample/blob/master/documents/sequence-diagram/microservices-sample%20(service%20registration%20sequence).png?raw=true)
 
 #### Service Discovery
 
  When one service (say api-gateway) needs to access a resource from another service (say service-one), all it has to do is ask discovery and registration server (Consul) to give one of the service-one's instance information.
  
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-4/documents/sequence-diagram/microservices-sample%20(service%20discovery%20sequence).png?raw=true)
+![alt tag](https://github.com/vmudigal/microservices-sample/blob/master/documents/sequence-diagram/microservices-sample%20(service%20discovery%20sequence).png?raw=true)
 
 ### Architecture
 
 Below is the architectural diagram for microservices sample project.
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-4/documents/Architecture.jpg?raw=true)
+![alt tag](https://github.com/vmudigal/microservices-sample/blob/master/documents/Architecture.jpg?raw=true)
 
 ### Technology
 
