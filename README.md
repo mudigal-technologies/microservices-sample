@@ -7,6 +7,9 @@
 [![Docker Repository on Quay](https://quay.io/repository/microservices-sample/service-three/status "Docker Repository on Quay")](https://quay.io/repository/microservices-sample/service-three)
 [![Docker Repository on Quay](https://quay.io/repository/microservices-sample/web-application/status "Docker Repository on Quay")](https://quay.io/repository/microservices-sample/web-application)
 
+## NOTE
+This repository is no longer maintained. Please refer https://github.com/microservices-sample for latest enhancements.
+
 ### What is it?
 
 "Microservices", a trending buzz word nowadays. What problems does it solve?
