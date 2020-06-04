@@ -10,12 +10,12 @@ import { HomeComponent } from './component/home/home.component';
 import { GatewayService } from './service/gateway/gateway.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './component/header/header.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'service-one', component: DataComponent},
   {path: 'service-two', component: DataComponent},
-  {path: 'service-three', component: DataComponent},
   {path: '**', redirectTo: '/', pathMatch: 'full'}
 ];
 
@@ -30,9 +30,12 @@ export const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
+    FontAwesomeModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [GatewayService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}

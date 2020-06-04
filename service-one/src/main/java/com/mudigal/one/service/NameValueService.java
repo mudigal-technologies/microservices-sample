@@ -1,7 +1,8 @@
 package com.mudigal.one.service;
 
-import com.mudigal.one.model.AllNameValueTO;
-import com.mudigal.one.model.NameValueTO;
+import com.mudigal.one.domain.NameValue;
+
+import reactor.core.publisher.Mono;
 
 /**
  * 
@@ -9,15 +10,11 @@ import com.mudigal.one.model.NameValueTO;
  *
  */
 public interface NameValueService {
-
-	NameValueTO updateNameValue(NameValueTO nameValueTO);
 	
-	NameValueTO updateNameValue(NameValueTO nameValueTO, boolean fromRabbit);
+	NameValue updateNameValue(NameValue value, boolean fromRabbit);
 
-	AllNameValueTO getAllNameValues(String name);
+	Mono<NameValue> getNameValue();
 
-	NameValueTO generateUUID();
-
-	NameValueTO generateUUID(String applicationName);
+	NameValue generateUUID();
 
 }
