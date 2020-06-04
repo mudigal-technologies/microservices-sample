@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {GatewayService} from '../../service/gateway/gateway.service';
 import {Router} from '@angular/router';
 

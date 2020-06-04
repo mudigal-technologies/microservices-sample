@@ -10,24 +10,16 @@ declare var $: any;
 })
 export class MenuComponent {
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   one() {
     $('#service-one').addClass('active');
     $('#service-two').removeClass('active');
-    $('#service-three').removeClass('active');
   }
 
   two() {
     $('#service-one').removeClass('active');
     $('#service-two').addClass('active');
-    $('#service-three').removeClass('active');
-  }
-
-  three() {
-    $('#service-one').removeClass('active');
-    $('#service-two').removeClass('active');
-    $('#service-three').addClass('active');
   }
 
 }

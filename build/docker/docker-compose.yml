@@ -1,4 +1,4 @@
-version: '3.1'
+version: '3.8'
 
 services:
   # ---------------------------
@@ -12,7 +12,7 @@ services:
       - "8080:8080"
     expose:
       - "8080" 
-    links:
+    depends_on:
       - consul
       - logstash
     environment:
@@ -45,16 +45,20 @@ services:
   service-one-db:
     container_name: "service-one-db"
     hostname: "serviceonedb"
-    image: "mysql/mysql-server:5.7"
+    image: "mongo:3.7"
     environment:
-      - MYSQL_ROOT_PASSWORD=root123
-      - MYSQL_DATABASE=service-one
-      - MYSQL_USER=service-one 
-      - MYSQL_PASSWORD=service-one
+      - MONGODB_USER="service-one" 
+      - MONGODB_PASS="service-one"
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - mongodata:/data/db
     ports:
-      - "3308:3306"
+      - "27017:27017"
     expose:
-      - "3308"
+      - "27017"
+    command: mongod --smallfiles 
+    #--logpath=/dev/null --sslDisabledProtocols 'none'
     networks:
       - backend
 
@@ -97,49 +101,11 @@ services:
       - backend
 
   # ---------------------------
-  # Service Three
-  # ---------------------------
-  service-three:
-    container_name: "service-three"
-    hostname: "service-three"
-    build: ../../service-three/target
-    ports:
-      - "8086:8086"
-    depends_on:
-      - rabbit
-      - service-three-db
-      - consul
-      - logstash
-    environment:
-      - SPRING_PROFILES_ACTIVE=${profile}
-    networks:
-      - backend
-
-  # ---------------------------
-  # Service Three Database
-  # ---------------------------
-  service-three-db:
-    container_name: "service-three-db"
-    hostname: "servicethreedb"
-    image: "mysql/mysql-server:5.7"
-    environment:
-      - MYSQL_ROOT_PASSWORD=root123
-      - MYSQL_DATABASE=service-three
-      - MYSQL_USER=service-three 
-      - MYSQL_PASSWORD=service-three
-    ports:
-      - "3312:3306"
-    expose:
-      - "3312"
-    networks:
-      - backend
-
-  # ---------------------------
   # Web Application
   # ---------------------------
   web-application:
     container_name: web-application
-    image: nginx
+    image: nginx:1.18.0-alpine
     build:
       context: ../../web-application
       dockerfile: docker/Dockerfile
@@ -155,7 +121,7 @@ services:
   # Messaging Queue Cluster
   # ---------------------------
   rabbit:
-    image: rabbitmq:3.6.6-management-alpine
+    image: rabbitmq:3.8-management-alpine
     container_name: rabbit-mq
     hostname: rabbitmq
     ports:
@@ -177,7 +143,7 @@ services:
   # Discovery Cluster
   # ---------------------------
   consul:
-    image: consul:0.7.2
+    image: consul:1.7.3
     container_name: "consul"
     hostname: "consul"
     command: consul agent -server -client 0.0.0.0 -ui -bootstrap-expect=3 -data-dir=/consul/data -retry-join=consul2 -retry-join=consul3 -datacenter=blr
@@ -187,7 +153,7 @@ services:
     networks:
       - backend
   consul2:
-    image: consul:0.7.2
+    image: consul:1.7.3
     container_name: "consul-2"
     hostname: "consul2"
     expose:
@@ -199,7 +165,7 @@ services:
     networks:
       - backend
   consul3:
-    image: consul:0.7.2
+    image: consul:1.7.3
     container_name: "consul-3"
     hostname: "consul3"
     expose:
@@ -216,7 +182,7 @@ services:
   # Infrastructure Visualization
   # -----------------------------
   scope:
-    image: weaveworks/scope:1.1.0
+    image: weaveworks/scope:1.13.1
     container_name: weave-scope
     hostname: weave-scope
     pid: "host"
@@ -239,7 +205,7 @@ services:
   # Log Vizualization 
   # -----------------------------
   kibana:
-    image: kibana:5.2
+    image: kibana:7.7.0
     container_name: kibana
     hostname: kibana
     ports:
@@ -248,7 +214,7 @@ services:
       - "5601"
     environment:
       - ELASTICSEARCH_URL=http://elasticsearch:9200
-    depends_on:
+    links:
       - elasticsearch
     networks:
       - backend
@@ -257,13 +223,14 @@ services:
   # Indexing Server
   # -----------------------------
   elasticsearch:
-    image: elasticsearch:5.2-alpine
+    image: elasticsearch:7.7.0
     container_name: elasticsearch
     hostname: elasticsearch
     environment:
       - "cluster.name=elasticsearch"
-      - "ES_JAVA_OPTS=-Xms512m -Xmx2048m"
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
       - "discovery.zen.ping.unicast.hosts=127.0.0.1"
+      - "discovery.type=single-node"
     ulimits:
       memlock:
         soft: -1
@@ -283,7 +250,7 @@ services:
   # Log Collection and Format
   # -----------------------------
   logstash:
-    image: logstash:5.2-alpine
+    image: logstash:7.7.0
     container_name: log-stash
     hostname: logstash
     ports:
@@ -299,22 +266,12 @@ services:
     networks:
       - backend
 
-  cadvisor:
-    container_name: cadvisor
-    image: google/cadvisor
-    volumes:
-      - /:/rootfs:ro
-      - /var/run:/var/run:rw
-      - /sys:/sys:ro
-      - /var/lib/docker/:/var/lib/docker:ro
-    ports:
-      - "8200:8080"
-    networks:
-      - backend
-
 networks:
   frontend:
     driver: bridge
   backend:
     driver: bridge
+
+volumes:
+  mongodata:
   

@@ -2,18 +2,12 @@
 
 spring:
   application.name: service-one
-  velocity.enabled: false
-  datasource:
-    testWhileIdle: true
-    validationQuery: SELECT 1
   jackson.serializationindent_output: true
-  jpa:
-    hibernate:
-      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
-    properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-    show-sql: true
 
-info.component: Service-One
+info:
+  component: Service-One
+  artifact: service-one
+  version: 5.0.0
 
 endpoints:
   restart:
@@ -24,30 +18,34 @@ endpoints:
     sensitive: false
 
 management:
-  contextPath: /manage
+  contextPath: /actuator
+  security.enabled: false
 
 server:
   contextPath: /
   port: 8082
+
 ---
 #DEFAULT CONFIGURATION
 spring:
   profiles: default
-  h2.console:
-    enabled: true
-    path: /h2
-  datasource:
-    url=jdbc:h2:mem:service-one-db;MV_STORE=FALSE;MVCC_STORE=FALSE
-    username=sa
-    password=
-    driver-class-name=org.h2.Driver
-  jpa: 
-    hibernate:
-      ddl-auto: update
+  autoconfigure.exclude:
+    - org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration
+    - org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration
+  cloud.consul.enabled: false
+  data.mongodb.uri: mongodb://localhost:27017/service-one
+logging:
+  level:
+    org.springframework.web: DEBUG
+    com.mudigal.one: DEBUG
+    org.hibernate: DEBUG
+
 ---
 # DOCKER CONFIGURATION
 spring:
   profiles: docker
+  autoconfigure.exclude:
+    - org.springframework.boot.autoconfigure.mongo.embedded.EmbeddedMongoAutoConfiguration
   cloud:
     consul:
       host: consul
@@ -57,17 +55,19 @@ spring:
         instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
         healthCheckPath: ${management.contextPath}/health
         healthCheckInterval: 15s
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://service-one-db/service-one?createDatabaseIfNotExist=true
-    username: service-one
-    password: service-one
-  jpa: 
-    hibernate:
-      ddl-auto: update
+  data:
+    mongodb.uri: mongodb://service-one-db/service-one
   rabbitmq:
     host: rabbit
     port: 5672
     username: mudigal
     password: mudigal
     virtualHost: /
+
+logstash.servers: logstash:5000
+
+logging:
+  level:
+    org.springframework.web: DEBUG
+    com.mudigal.one: DEBUG
+    org.hibernate: DEBUG

@@ -11,6 +11,7 @@ import org.springframework.amqp.rabbit.listener.RabbitListenerEndpointRegistrar;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.messaging.converter.MappingJackson2MessageConverter;
 import org.springframework.messaging.handler.annotation.support.DefaultMessageHandlerMethodFactory;
 
@@ -21,6 +22,7 @@ import org.springframework.messaging.handler.annotation.support.DefaultMessageHa
  *
  */
 @Configuration
+@Profile("!default")
 public class ServiceOneRabbitMQBean implements RabbitListenerConfigurer {
     
     public final static String queueName = "com.mudigal.microservices-sample.service-one";

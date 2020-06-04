@@ -1,10 +1,14 @@
 package com.mudigal.one;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRepositories;
+import org.springframework.scheduling.annotation.EnableScheduling;
+
+import com.mudigal.one.domain.NameValue;
 import com.mudigal.one.service.NameValueService;
 
 /**
@@ -13,15 +17,24 @@ import com.mudigal.one.service.NameValueService;
  *
  */
 
-@EnableDiscoveryClient
+@EnableScheduling
 @SpringBootApplication
-public class ServiceOneApplication extends SpringBootServletInitializer {
+@EnableDiscoveryClient
+@EnableReactiveMongoRepositories
+public class ServiceOneApplication {
 
-	private static ConfigurableApplicationContext context;
+	@Bean
+	CommandLineRunner generateNameValue(NameValueService nameValueService) {
+
+		return args -> {
+			NameValue nameValue = nameValueService.generateUUID();
+			nameValueService.updateNameValue(nameValue, false);
+		};
+
+	}
 
 	public static void main(String[] args) {
-		context = SpringApplication.run(ServiceOneApplication.class, args);
-		context.getBean(NameValueService.class)
-				.generateUUID(context.getEnvironment().getProperty("spring.application.name"));
+		SpringApplication.run(ServiceOneApplication.class, args);
 	}
+
 }

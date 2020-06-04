@@ -1,28 +1,33 @@
 package com.mudigal.two;
 
+import com.mudigal.two.model.NameValueTO;
+import com.mudigal.two.service.NameValueService;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.context.ConfigurableApplicationContext;
-import com.mudigal.two.service.NameValueService;
+import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
- * 
  * @author Vijayendra Mudigal
- *
  */
 
 @EnableDiscoveryClient
 @SpringBootApplication
-public class ServiceTwoApplication extends SpringBootServletInitializer {
+public class ServiceTwoApplication {
 
-	private static ConfigurableApplicationContext context;
+  @Bean
+  CommandLineRunner generateNameValue(NameValueService nameValueService) {
 
-	public static void main(String[] args) {
-		context = SpringApplication.run(ServiceTwoApplication.class, args);
-		context.getBean(NameValueService.class)
-				.generateUUID(context.getEnvironment().getProperty("spring.application.name"));
-	}
+    return args -> {
+      nameValueService.generateUUID();
+    };
+
+  }
+
+  public static void main(String[] args) {
+    SpringApplication.run(ServiceTwoApplication.class, args);
+  }
 
 }

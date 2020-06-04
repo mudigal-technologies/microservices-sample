@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- OFF, FATAL, ERROR, WARN, INFO, DEBUG, TRACE, ALL -->
+
+<configuration debug="false">
+
+	<include resource="org/springframework/boot/logging/logback/base.xml" />
+
+	<property name="CONSOLE_LOG_PATTERN" value="%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%1.14X{principal:-}]) %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}" />
+	<property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}/}spring.log}" />
+	<property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} ${LOG_LEVEL_PATTERN:-%5p} ${PID:- } --- [%X{principal}] [%t] %-40.40logger{39} : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}" />
+
+	<springProperty scope="context" name="LOGSTASH" source="logstash.servers" />
+	<springProperty scope="context" name="APP_NAME" source="info.artifact" />
+	<springProperty scope="context" name="APP_VERSION" source="info.version" />
+
+	<springProfile name="default">
+		<include resource="org/springframework/boot/logging/logback/console-appender.xml" />
+	</springProfile>
+	<springProfile name="docker">
+		<appender name="STASH"
+			class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+			<destination>logstash:5000</destination>
+		    <!-- encoder is required -->
+		    <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+	            <includeCallerInfo>true</includeCallerInfo>
+	            <customFields>{"appname":"service-two","version":"5.0"}</customFields>
+	        </encoder>
+		</appender>
+	</springProfile>
+
+	<root level="WARN">
+		<springProfile name="default">
+			<appender-ref ref="CONSOLE" />
+		</springProfile>
+		<springProfile name="docker">
+			<appender-ref ref="STASH" />
+		</springProfile>
+	</root>
+
+</configuration>

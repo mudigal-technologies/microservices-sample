@@ -4,20 +4,16 @@ import com.mudigal.two.model.AllNameValueTO;
 import com.mudigal.two.model.NameValueTO;
 
 /**
- * 
  * @author Vijayendra Mudigal
- *
  */
 public interface NameValueService {
 
-	NameValueTO updateNameValue(NameValueTO nameValueTO);
+  NameValueTO updateNameValue(NameValueTO nameValueTO);
 
-	AllNameValueTO getAllNameValues(String name);
+  AllNameValueTO getAllNameValues(String name);
 
-	NameValueTO updateNameValue(NameValueTO nameValueTO, boolean fromRabbit);
+  NameValueTO updateNameValue(NameValueTO nameValueTO, boolean fromRabbit);
 
-	NameValueTO generateUUID();
-
-	NameValueTO generateUUID(String applicationName);
+  NameValueTO generateUUID();
 
 }

@@ -14,9 +14,6 @@ endpoints:
   health:
     sensitive: false
 
-management:
-  contextPath: /manage
-
 server:
   contextPath: /
   port: 8080
@@ -45,5 +42,5 @@ spring:
       discovery:
         hostName: api-gateway
         instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
-        healthCheckPath: ${management.contextPath}/health
+        healthCheckPath: /actuator/health
         healthCheckInterval: 15s
