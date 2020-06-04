@@ -111,7 +111,8 @@ Logback integrated with every microservices creates application logs and send th
 
 Accessing tools:   
 
-Elasticsearch: http://localhost:9200/_search?pretty
+Elasticsearch: http://localhost:9200/_search?pretty   
+
 Kibana: http://localhost:5601/app/kibana
 
 ![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-5/documents/screens/Kibana/kibana.png?raw=true)
