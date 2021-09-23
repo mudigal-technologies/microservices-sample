@@ -15,12 +15,13 @@ pipeline {
     stage('SonarQube analysis'){
       steps{
         
-        withSonarQubeEnv(installationName: 'Sonarqube', credentialsId: 'Sonarqube') {
+        withSonarQubeEnv('Sonarqube') {
           sh "${tool("sonar_scanner")}/bin/sonar-scanner"
           
         } 
       }
     }
+    
     stage('Building image') {
       steps{
         script {
