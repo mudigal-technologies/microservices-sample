@@ -17,8 +17,8 @@ pipeline {
         /*
         withSonarQubeEnv(installationName: 'Sonarqube', credentialsId: 'Sonarqube') {
           sh "${tool("sonar_scanner")}/bin/sonar-scanner"
-          */
-        }
+          
+        } */
       }
     }
     stage('Building image') {
