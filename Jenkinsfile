@@ -7,9 +7,9 @@ pipeline {
     IMAGE="${JOB_NAME}"
   }
   // if is a nodejs app
-  tools {
-    nodejs 'NodeJS'
- }
+  //tools {
+    //nodejs 'NodeJS'
+ //}
   agent any
   stages {
     stage('SonarQube analysis'){
