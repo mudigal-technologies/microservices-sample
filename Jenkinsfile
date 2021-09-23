@@ -14,7 +14,7 @@ pipeline {
   stages {
     stage('SonarQube analysis'){
       steps{
-        withSonarQubeEnv(installationName: 'admin', credentialsId: 'admin') {
+        withSonarQubeEnv(installationName: 'Sonarqube', credentialsId: 'admin') {
           sh "${tool("sonar_scanner")}/bin/sonar-scanner"
         }
       }
