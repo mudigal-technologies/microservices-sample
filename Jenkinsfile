@@ -16,8 +16,7 @@ pipeline {
       steps{
         
         withSonarQubeEnv('Sonarqube') {
-        sh "${tool("sonar_scanner")}/bin/sonar-scanner \
-          sonar.projectKey=microservices"
+        sh "${tool("sonar_scanner")}/bin/sonar-scanner"
          
           
         } 
