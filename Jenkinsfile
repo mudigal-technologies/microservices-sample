@@ -27,9 +27,9 @@ pipeline {
     
     stage('Building image') {
       steps{
-       /* script {
+        script {
           dockerImage = docker.build("$registry:$DOCKER_TAG")
-        } */
+        } 
       }
     }
     stage('Static Security Assesment'){
