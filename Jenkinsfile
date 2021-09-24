@@ -9,9 +9,11 @@ pipeline {
   
   
   //ifisanodejsapp
+  /*
   tools {
    nodejs 'NodeJS'
  }
+ */
   
   
   agent any
