@@ -6,10 +6,14 @@ pipeline {
     DOCKER_TAG = getVersion().trim()
     IMAGE="${JOB_NAME}"
   }
-  // if is a nodejs app
-  //tools {
-    //nodejs 'NodeJS'
- //}
+  
+  
+  if is a nodejs app
+  tools {
+   nodejs 'NodeJS'
+ }
+  
+  
   agent any
   stages {
     stage('SonarQube analysis'){
