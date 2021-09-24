@@ -33,6 +33,7 @@ pipeline {
     
     stage('Building image') {
       steps{
+        sh 'echo Building Image'
         /*
         script {
           dockerImage = docker.build("$registry:$DOCKER_TAG")
