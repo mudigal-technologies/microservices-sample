@@ -8,7 +8,7 @@ pipeline {
   }
   
   
-  //if is a nodejs app
+  //ifisanodejsapp
   tools {
    nodejs 'NodeJS'
  }
