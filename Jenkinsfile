@@ -24,12 +24,10 @@ pipeline {
         def mvnHome = tool name 'maven-3' , type 'maven'
          withSonarQubeEnv('Sonarqube') {
            sh "${mvnHome}/bin/mvn sonar:sonar"
-         
-          
         } 
       }
     }
-    
+  }
   
     
     stage('Building image') {
