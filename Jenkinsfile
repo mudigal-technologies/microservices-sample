@@ -26,16 +26,27 @@ pipeline {
       steps{
         //sh 'echo SonarQube analysis'
         
-        def mvnHome = tool name 'maven-3' , type 'maven'
-         withSonarQubeEnv('Sonarqube') {
-           sh "${mvnHome}/bin/mvn sonar:sonar"
+        def scannerHome = tool 'SonarScanner 4.0';
+    withSonarQubeEnv('Sonarqube') { 
+      // If you have configured more than one global server connection, you can specify its name
+      sh "${scannerHome}/bin/sonar-scanner"
         } 
         
       }
     }
-  
-  
-    
+/*  
+  node {
+  stage('SCM') {
+    git 'https://github.com/foo/bar.git'
+  }
+  stage('SonarQube analysis') {
+    def scannerHome = tool 'SonarScanner 4.0';
+    withSonarQubeEnv('Sonarqube') { // If you have configured more than one global server connection, you can specify its name
+      sh "${scannerHome}/bin/sonar-scanner"
+    }
+  }
+}
+ */   
     stage('Building image') {
       steps{
         sh 'echo Building Image'
