@@ -24,13 +24,13 @@ pipeline {
   stages {
     stage('SonarQube analysis'){
       steps{
-        sh 'echo SonarQube analysis'
-        /*
+        //sh 'echo SonarQube analysis'
+        
         def mvnHome = tool name 'maven-3' , type 'maven'
          withSonarQubeEnv('Sonarqube') {
            sh "${mvnHome}/bin/mvn sonar:sonar"
         } 
-        */
+        
       }
     }
   
