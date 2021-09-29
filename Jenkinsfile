@@ -9,11 +9,11 @@ pipeline {
   
   
   //ifisanodejsapp
-  
+  /*
   tools {
    nodejs 'NodeJS'
  }
-
+*/
   /*
   stage('Compile-Package'){
   def mvnHome = tool name: 'maven-3' , type: 'maven'
