@@ -14,21 +14,23 @@ pipeline {
    nodejs 'NodeJS'
  }
  */
-  
+ /* 
   stage('Compile-Package'){
   def mvnHome = tool name: 'maven-3' , type: 'maven'
     sh "${mvnHome}/bin/mvn package" 
   }
-  
+  */
   agent any
   stages {
     stage('SonarQube analysis'){
       steps{
         sh 'echo SonarQube analysis'
+        /*
         def mvnHome = tool name 'maven-3' , type 'maven'
          withSonarQubeEnv('Sonarqube') {
            sh "${mvnHome}/bin/mvn sonar:sonar"
         } 
+        */
       }
     }
   }
