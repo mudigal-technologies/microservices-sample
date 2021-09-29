@@ -21,11 +21,12 @@ pipeline {
     stage('SonarQube analysis'){
       steps{
         sh 'echo SonarQube analysis'
-       /* withSonarQubeEnv('Sonarqube') {
-       sh "${tool("sonar_scanner")}/bin/sonar-scanner"
+        def mvnHome = tool name 'maven-3' , type 'maven'
+         withSonarQubeEnv('Sonarqube') {
+           sh "${mvnHome}/bin/mvn sonar:sonar"
          
           
-        } */
+        } 
       }
     }
     
