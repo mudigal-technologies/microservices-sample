@@ -36,8 +36,8 @@ pipeline {
         sh 'echo Building Image'
         
         script {
-          //dockerImage = docker.build("$registry:$DOCKER_TAG")
-          sh 'docker build -t digirolamo/microservices-sample:latest .'
+          dockerImage = docker.build("$registry:$DOCKER_TAG")
+          //sh 'docker build -t digirolamo/microservices-sample:latest .'
         } 
       }
     }
