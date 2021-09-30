@@ -8,53 +8,36 @@ pipeline {
   }
   
   
-  //ifisanodejsapp
+  //if is a nodejs app
   /*
   tools {
    nodejs 'NodeJS'
  }
 */
-  /*
-  stage('Compile-Package'){
-  def mvnHome = tool name: 'maven-3' , type: 'maven'
-    sh "${mvnHome}/bin/mvn package" 
-  }
-  */
+ 
   agent any
   stages {
     stage('SonarQube analysis'){
       steps{
         //sh 'echo SonarQube analysis'
         
-       // def scannerHome = tool 'SonarScanner 4.0';
+     
     withSonarQubeEnv('Sonarqube') { 
       // If you have configured more than one global server connection, you can specify its name
       sh "${tool("sonar_scanner")}/bin/sonar-scanner"
-     // sh "${scannerHome}/bin/sonar-scanner"
+     
         } 
         
       }
     }
-/*  
-  node {
-  stage('SCM') {
-    git 'https://github.com/foo/bar.git'
-  }
-  stage('SonarQube analysis') {
-    def scannerHome = tool 'SonarScanner 4.0';
-    withSonarQubeEnv('Sonarqube') { // If you have configured more than one global server connection, you can specify its name
-      sh "${scannerHome}/bin/sonar-scanner"
-    }
-  }
-}
- */   
+  
     stage('Building image') {
       steps{
         sh 'echo Building Image'
-        /*
+        
         script {
           dockerImage = docker.build("$registry:$DOCKER_TAG")
-        } */
+        } 
       }
     }
     stage('Static Security Assesment'){
