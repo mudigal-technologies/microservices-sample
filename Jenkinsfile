@@ -19,7 +19,7 @@ pipeline {
   stages {
     stage('SonarQube analysis'){
       steps{
-        //sh 'echo SonarQube analysis'
+        sh 'echo SonarQube analysis'
         
      
     withSonarQubeEnv('Sonarqube') { 
@@ -42,7 +42,7 @@ pipeline {
     }
     stage('Static Security Assesment'){
       steps{
-        sh 'echo Building Image'
+        sh 'echo Static Security Assesment'
         /*
         sh 'docker run --name ${IMAGE} -t -d $registry:${DOCKER_TAG}'
         //Inserire il profilo che si vuole utilizzare, nel caso se ne vogliano utiilizzare più di uno aggiungere un'altra riga con un diverso nome del report
