@@ -1,6 +1,6 @@
 #FROM node:latest
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/web-application
 
 COPY package*.json ./
 
