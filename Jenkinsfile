@@ -9,11 +9,11 @@ pipeline {
   
   
   //if is a nodejs app
-  /*
+  
   tools {
    nodejs 'NodeJS'
  }
-*/
+
  
   agent any
   stages {
