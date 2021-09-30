@@ -1,20 +1,21 @@
-/*FROM node:latest
 
-WORKDIR /usr/src/app
+#FROM node:latest
 
-COPY package*.json ./
+#WORKDIR /usr/src/app
 
-RUN npm install
-RUN curl -fsSLO  https://get.docker/builds/Linux/x86_64/docker-17.04.0-ce.tgz  \
-  && tar xzvf docker-17.04.0-ce.tgz \
-  && mv docker/docker /usr/local/bin \
-  && rm -r docker docker-17.04.0-ce.tgz
+#COPY package*.json ./
 
-COPY . .
+#RUN npm install
+#RUN curl -fsSLO  https://get.docker/builds/Linux/x86_64/docker-17.04.0-ce.tgz  \
+ # && tar xzvf docker-17.04.0-ce.tgz \
+ # && mv docker/docker /usr/local/bin \
+ # && rm -r docker docker-17.04.0-ce.tgz
 
-EXPOSE 3000
-CMD [ "node", "index.js" ]
-*/
+#COPY . .
+
+#EXPOSE 3000
+#CMD [ "node", "index.js" ]
+
 
 # Dockerfile for the main wordpress container 
 # Change the version if you want more up-to-date wordpress installation. 4.8 = mid-2017
