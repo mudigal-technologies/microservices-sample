@@ -1,6 +1,6 @@
 pipeline {
   environment {
-    registry = "digirolamo/${JOB_NAME}"   //non so se è digirolamo o digirolamoluca
+    registry = "digirolamo/${JOB_NAME}"   
     registryCredential = 'digirolamo-dockerhub'
     dockerImage = ''
     DOCKER_TAG = getVersion().trim()
