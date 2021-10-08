@@ -15,15 +15,8 @@ pipeline {
  }
 
  
-  agent any
-   stages('Snyk analysis'){
-          steps{
-       
-          snykSecurity snykInstallation: 'Synk', snykTokenId: 'Snyk'
-          }
-        }
-  
-  stage {
+  agent any  
+  stages {
     stage('SonarQube analysis'){
       steps{
         sh 'echo SonarQube analysis'
@@ -36,7 +29,12 @@ pipeline {
         }         
       }
     }
-  
+   stage('Snyk analysis'){
+          steps{
+       
+          snykSecurity snykInstallation: 'Synk', snykTokenId: 'Snyk'
+          }
+        }
     
     
     stage('Building image') {
