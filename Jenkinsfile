@@ -28,6 +28,12 @@ pipeline {
      
         } 
         
+        stage('Snyk analysis'){
+          steps{
+          snykSecurity snykInstallation: 'Synk', snykTokenId: 'Snyk'
+          }
+        }
+        
       }
     }
   
