@@ -34,7 +34,6 @@
 
 	<modules>
 		<module>api-gateway</module>
-		<module>service-one</module>
 		<module>service-two</module>
 	</modules>
 	
