@@ -32,7 +32,7 @@ pipeline {
   
      stage('Snyk analysis'){
           steps{
-          mvn dependency:tree -DoutputType=dot --file="pom.xml"
+       
           snykSecurity failOnIssues: false, snykInstallation: 'Synk', snykTokenId: 'Snyk'
           }
         }
