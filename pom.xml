@@ -7,7 +7,7 @@
 	
 	<groupId>com.mudigal</groupId>
 	<artifactId>microservices-sample</artifactId>
-	<version>3.0.0-SNAPSHOT</version>
+	<version>5.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>Microservices Sample</name>
