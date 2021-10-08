@@ -26,17 +26,16 @@ pipeline {
       // If you have configured more than one global server connection, you can specify its name
       sh "${tool("sonar_scanner")}/bin/sonar-scanner"
      
-        } 
-        
-        stage('Snyk analysis'){
+        }         
+      }
+    }
+  
+     stage('Snyk analysis'){
           steps{
           snykSecurity snykInstallation: 'Synk', snykTokenId: 'Snyk'
           }
         }
-        
-      }
-    }
-  
+    
     stage('Building image') {
       steps{
         sh 'echo Building Image'
