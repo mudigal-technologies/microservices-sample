@@ -16,14 +16,14 @@ pipeline {
 
  
   agent any
-   stage('Snyk analysis'){
+   stages('Snyk analysis'){
           steps{
        
           snykSecurity snykInstallation: 'Synk', snykTokenId: 'Snyk'
           }
         }
   
-  stages {
+  stage {
     stage('SonarQube analysis'){
       steps{
         sh 'echo SonarQube analysis'
