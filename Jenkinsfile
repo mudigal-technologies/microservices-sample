@@ -16,6 +16,13 @@ pipeline {
 
  
   agent any
+   stage('Snyk analysis'){
+          steps{
+       
+          snykSecurity snykInstallation: 'Synk', snykTokenId: 'Snyk'
+          }
+        }
+  
   stages {
     stage('SonarQube analysis'){
       steps{
@@ -30,12 +37,7 @@ pipeline {
       }
     }
   
-     stage('Snyk analysis'){
-          steps{
-       
-          snykSecurity failOnIssues: false, snykInstallation: 'Synk', snykTokenId: 'Snyk'
-          }
-        }
+    
     
     stage('Building image') {
       steps{
