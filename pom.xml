@@ -3,7 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	
-	
+	<repositories>
+    <repository>
+        <id>spring-releases</id>
+        <name>Spring Releases</name>
+        <url>http://oss.jfrog.org/artifactory/oss-snapshot-local/io/springfox/springfox-swagger-ui/3.0.0-SNAPSHOT/springfox-swagger-ui-3.0.0-SNAPSHOT.pom</url>
+    </repository>
+</repositories>
 	
 	<groupId>com.mudigal</groupId>
 	<artifactId>microservices-sample</artifactId>
