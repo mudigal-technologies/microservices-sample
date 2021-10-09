@@ -56,7 +56,7 @@ pipeline {
         //Inserire il profilo che si vuole utilizzare, nel caso se ne vogliano utiilizzare più di uno aggiungere un'altra riga con un diverso nome del report
         sh 'inspec exec https://github.com/dev-sec/linux-baseline -t docker://${IMAGE} --reporter html:/Results/Linux_Baseline_report.html --chef-license=accept || true'
         sh 'docker stop ${IMAGE}'
-        //sh 'docker container rm ${IMAGE}'
+        sh 'docker container rm ${IMAGE}'
         
         withCredentials([usernamePassword(credentialsId: 'GIT', passwordVariable: 'gittabbodege9', usernameVariable: 'digirolamoluca')]) { 
         
