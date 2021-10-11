@@ -27,7 +27,7 @@
   </parent>
 
   <properties>
-    <swagger.version>3.0.0-SNAPSHOT</swagger.version>
+    <swagger.version>2.0.0-SNAPSHOT</swagger.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <java.version>1.8</java.version>
