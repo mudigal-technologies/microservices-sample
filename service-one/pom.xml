@@ -89,11 +89,6 @@
       <artifactId>springfox-spring-webflux</artifactId>
       <version>${swagger.version}</version>
     </dependency>
-    <dependency>
-        <groupId>io.springfox</groupId>
-        <artifactId>springfox-boot-starter</artifactId>
-        <version>{swagger.version}</version>
-    </dependency>
 
     <!-- Centralized Logging -->
     <dependency>
