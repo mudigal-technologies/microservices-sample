@@ -22,9 +22,9 @@ pipeline {
         sh 'echo SonarQube analysis'
         
      
-    withSonarQubeEnv('Sonarqube') { 
+   // withSonarQubeEnv('Sonarqube') { 
       // If you have configured more than one global server connection, you can specify its name
-      sh "${tool("sonar_scanner")}/bin/sonar-scanner"
+    //  sh "${tool("sonar_scanner")}/bin/sonar-scanner"
      
         }         
       }
