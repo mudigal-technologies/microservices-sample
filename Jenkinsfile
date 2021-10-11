@@ -30,9 +30,9 @@ pipeline {
       }
     }
    stage('Snyk analysis'){
-     sh 'echo Snyk analysis'
+     
           steps{
-       
+       sh 'echo Snyk analysis'
          //snykSecurity snykInstallation: 'Synk', snykTokenId: 'Snyk'
           }
         }
