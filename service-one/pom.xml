@@ -143,7 +143,7 @@
    <repository>
       <id>jcenter-snapshots</id>
       <name>jcenter</name>
-      <url>http://oss.jfrog.org/artifactory/oss-snapshot-local/</url>
+      <url>https://oss.jfrog.org/artifactory/oss-snapshot-local/org/jfrog/bamboo/bamboo-artifactory-plugin/</url>
     </repository>
     <repository>
       <id>spring-snapshots</id>
@@ -164,11 +164,6 @@
   </repositories>
 
   <pluginRepositories>
-     <pluginRepository>
-      <id>jcenter-snapshots</id>
-      <name>jcenter</name>
-      <url>http://oss.jfrog.org/artifactory/oss-snapshot-local/</url>
-    </pluginRepository>
     <pluginRepository>
       <id>spring-snapshots</id>
       <name>Spring Snapshots</name>
