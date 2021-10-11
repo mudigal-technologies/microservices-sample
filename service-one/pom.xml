@@ -140,6 +140,12 @@
   </dependencyManagement>
 
   <repositories>  
+    
+     <repository>
+      <id>jcenter-snapshots</id>
+      <name>jcenter</name>
+      <url>http://oss.jfrog.org/artifactory/oss-snapshot-local/io/springfox/springfox-swagger2/3.0.0-SNAPSHOT/maven-metadata.xml/</url>
+    </repository>
     <repository>
       <id>jcenter-snapshots</id>
       <name>jcenter</name>
