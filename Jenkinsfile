@@ -63,7 +63,7 @@ pipeline {
         
         //withCredentials([usernamePassword(credentialsId: 'GIT', passwordVariable: 'gittabbodege9', usernameVariable: 'digirolamoluca')]) { 
         
-       withCredentials([usernamePassword(credentialsId: 'GIT', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {        
+       withCredentials([usernamePassword(passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {        
           
           sh 'git remote set-url origin "https://digirolamoluca:gittabbodege9@github.com/digirolamoluca/${JOB_NAME}.git"'
           sh 'git add Results/*'
