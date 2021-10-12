@@ -1,3 +1,4 @@
+#IL PROBLEMA DI CHEINSPEC È TUTTO QUI
 #FROM digirolamo/microservices-sample:latest
 
 #WORKDIR /usr/src/
@@ -12,7 +13,7 @@
 #EXPOSE 3000
 #CMD [ "digirolamo/microservices-sample", "index.js" ]
 
-FROM digirolamo/microservices-sample:latest
+FROM node:latest
 
 WORKDIR /usr/src/app
 
@@ -24,4 +25,4 @@ WORKDIR /usr/src/app
 COPY . .
 
 EXPOSE 3000
-#CMD [ "digirolamo/microservices-sample", "index.js" ]
+#CMD [ "node", "index.js" ]
