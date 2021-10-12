@@ -14,7 +14,7 @@
 #CMD [ "digirolamo/microservices-sample", "index.js" ]
 
 #FROM node:latest
-FROM digirolamo/microservices-sample:latest
+#FROM digirolamo/microservices-sample:latest
 
 WORKDIR /usr/src/app
 
@@ -23,7 +23,7 @@ WORKDIR /usr/src/app
 #RUN npm install
 
 
-COPY --from=digirolamoluca/microservices-sample:latest somefile somefile
+#COPY --from=digirolamoluca/microservices-sample:latest somefile somefile
 
 EXPOSE 3000
 #CMD [ "node", "index.js" ]
