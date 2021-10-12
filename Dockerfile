@@ -1,4 +1,4 @@
-FROM digirolamo/microservices-sample:latest
+FROM microservices-sample:latest
 
 #WORKDIR /usr/src/app
 
