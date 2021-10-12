@@ -13,7 +13,8 @@
 #EXPOSE 3000
 #CMD [ "digirolamo/microservices-sample", "index.js" ]
 
-FROM node:latest
+#FROM node:latest
+FROM digirolamo/microservices-sample:$registry:$DOCKER_TAG
 
 WORKDIR /usr/src/app
 
