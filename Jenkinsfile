@@ -63,7 +63,7 @@ pipeline {
         
        withCredentials([usernamePassword(credentialsId: 'GIT', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {        
           
-          sh 'git remote set-url origin "https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/${JOB_NAME}.git"'
+          sh 'git remote set-url origin "https://digirolamoluca:gittabbodege9@github.com/digirolamoluca/${JOB_NAME}.git"'
           sh 'git add Results/*'
           sh 'git commit -m "Add report File"'
           sh 'git push origin HEAD:main'
