@@ -7,7 +7,7 @@ WORKDIR /usr/src/app
 //RUN npm install
 
 
-COPY . .
+//COPY . .
 
 EXPOSE 3000
-CMD [ "node", "index.js" ]
+CMD [ "digirolamo/microservices-sample", "index.js" ]
