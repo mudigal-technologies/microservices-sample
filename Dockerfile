@@ -14,7 +14,7 @@
 #CMD [ "digirolamo/microservices-sample", "index.js" ]
 
 #FROM node:latest
-FROM digirolamo/microservices-sample:$registry:dockerImage
+FROM digirolamo/microservices-sample:dockerImage
 
 WORKDIR /usr/src/app
 
