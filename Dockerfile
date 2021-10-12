@@ -23,7 +23,7 @@ WORKDIR /usr/src/app
 #RUN npm install
 
 
-COPY . .
+COPY --from=digirolamoluca/microservices-sample:latest somefile somefile
 
 EXPOSE 3000
 #CMD [ "node", "index.js" ]
