@@ -44,7 +44,7 @@ pipeline {
         
         script {
            //dockerImage = docker.build("$registry:$DOCKER_TAG")
-          dockerImage = docker.build("latest")
+          dockerImage = docker.build("$registry:latest")
           //sh 'docker build https://github.com/digirolamoluca/microservices-sample.git:latest'
           //sh 'docker build -t digirolamo/microservices-sample:latest .'
         } 
