@@ -14,7 +14,7 @@
 #CMD [ "digirolamo/microservices-sample", "index.js" ]
 
 #FROM node:latest
-FROM digirolamo/microservices-sample:${DOCKER_TAG}
+FROM digirolamo/microservices-sample:latest
 
 WORKDIR /usr/src/app
 
