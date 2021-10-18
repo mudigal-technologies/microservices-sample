@@ -19,9 +19,10 @@ FROM node:latest
 WORKDIR /usr/src/app
 
 #COPY package*.json ./
-COPY  --chown=www-data:www-data  /Results /usr/src
+#COPY  --chown=www-data:www-data  /Results /usr/src
 #RUN npm install
 #RUN chown 777 /microservices-sample/Results
+RUN chown -R Results
 
 #COPY --from=digirolamoluca/microservices-sample:latest somefile somefile
 
