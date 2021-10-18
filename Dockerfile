@@ -21,7 +21,7 @@ WORKDIR /usr/src/app
 #COPY package*.json ./
 #COPY  --chown=www-data:www-data /Results
 #RUN npm install
-RUN chown -R /Results/*
+RUN chown 777 /Results
 
 #COPY --from=digirolamoluca/microservices-sample:latest somefile somefile
 
