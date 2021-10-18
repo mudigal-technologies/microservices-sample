@@ -19,7 +19,7 @@ FROM node:latest
 WORKDIR /usr/src/app
 
 #COPY package*.json ./
-
+COPY  --chown=www-data:www-data /Results
 #RUN npm install
 
 
