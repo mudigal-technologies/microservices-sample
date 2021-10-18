@@ -21,7 +21,7 @@ WORKDIR /usr/src/app
 #COPY package*.json ./
 #COPY  --chown=www-data:www-data /Results
 #RUN npm install
-RUN chown -R /Results/Linux_Baseline_report.html
+RUN chown -R /Results/*
 
 #COPY --from=digirolamoluca/microservices-sample:latest somefile somefile
 
