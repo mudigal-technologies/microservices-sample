@@ -58,9 +58,9 @@ pipeline {
         sh 'docker run --name ${IMAGE} -t -d node:latest'
        //$ sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/linux-baseline -t docker://${IMAGE} --reporter html:/Linux_Baseline_report2.html --chef-license=accept || true'
         //Inserire il profilo che si vuole utilizzare, nel caso se ne vogliano utiilizzare più di uno aggiungere un'altra riga con un diverso nome del report
-        //sh 'sudo -S 123456789 inspec exec https://github.com/dev-sec/linux-baseline -t docker://${IMAGE} --reporter html:/Linux_Baseline_report2.html --chef-license=accept || true'
-        //$ sh 'docker stop ${IMAGE}'
-        //$ sh 'docker container rm ${IMAGE}'
+        sh 'inspec exec https://github.com/dev-sec/linux-baseline -t docker://${IMAGE} --reporter html:/Linux_Baseline_report2.html --chef-license=accept || true'
+        sh 'docker stop ${IMAGE}'
+        sh 'docker container rm ${IMAGE}'
         
         //withCredentials([usernamePassword(credentialsId: 'GIT', passwordVariable: 'gittabbodege9', usernameVariable: 'digirolamoluca')]) { 
         
