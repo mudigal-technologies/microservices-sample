@@ -19,7 +19,7 @@ FROM node:latest
 WORKDIR /usr/src/app
 
 #COPY package*.json ./
-#COPY  --chown=www-data:www-data  /Results /usr/src
+COPY  --chown=www-data:www-data  /Results /usr/src/app
 #RUN npm install
 #RUN chown 777 /microservices-sample/Results
 #RUN chown 777 /Results/Linux_Baseline_report.html
