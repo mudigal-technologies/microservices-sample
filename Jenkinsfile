@@ -61,8 +61,8 @@ pipeline {
        // sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/linux-baseline/archive/master.tar.gz -t docker://microservices-sample --reporter html:/Results/Linux_Baseline_report.html --chef-license=accept || true'
        // sh 'inspec exec https://github.com/dev-sec/linux-baseline -t docker://${IMAGE} --reporter html:/Linux_Baseline_report.html --chef-license=accept || true'
         sh 'inspec exec https://github.com/dev-sec/linux-baseline/archive/master.tar.gz -t docker://microservices-sample --reporter html:/Results/Linux_Baseline_report.html --chef-license=accept || true'
-       //%sh 'docker stop ${IMAGE}'
-        //%sh 'docker container rm ${IMAGE}'
+        sh 'docker stop ${IMAGE}'
+        sh 'docker container rm ${IMAGE}'
         
         //withCredentials([usernamePassword(credentialsId: 'GIT', passwordVariable: 'gittabbodege9', usernameVariable: 'digirolamoluca')]) { 
         
