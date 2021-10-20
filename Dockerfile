@@ -21,12 +21,13 @@ WORKDIR /usr/src/app
 
 #COPY package*.json ./
 #COPY  --chown=www-data:www-data  /Results /usr/src/app
-#RUN npm install
+RUN npm install
 #RUN chown 777 /microservices-sample/Results
 #RUN chown 777 /Results/Linux_Baseline_report.html
-RUN chmod -R 777 Results
-
+#RUN chmod -R 777 Results
+COPY . ./
 #COPY --from=digirolamoluca/microservices-sample:latest somefile somefile
 
 EXPOSE 3000
+CMD [ "npm", "start" ]
 #CMD [ "node", "index.js" ]
