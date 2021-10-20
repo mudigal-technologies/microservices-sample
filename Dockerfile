@@ -24,7 +24,7 @@ WORKDIR /usr/src/app
 #RUN npm install
 #RUN chown 777 /microservices-sample/Results
 #RUN chown 777 /Results/Linux_Baseline_report.html
-RUN chmod -R 777 usr
+RUN chmod -R 777 Results
 
 #COPY --from=digirolamoluca/microservices-sample:latest somefile somefile
 
