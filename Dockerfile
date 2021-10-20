@@ -1,7 +1,7 @@
 
-FROM node:latest 
+#$FROM node:latest 
 #con FROM specifico l'immagine base da cui partire per costruirne una di nuova 
-
+FROM ubuntu:20.04.3
 #WORKDIR /usr/src/app
 
 #COPY package*.json ./
