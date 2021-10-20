@@ -1,7 +1,7 @@
 
-#$FROM node:latest 
+FROM node:latest 
 #con FROM specifico l'immagine base da cui partire per costruirne una di nuova 
-FROM ubuntu:20.04.3
+
 #WORKDIR /usr/src/app
 
 #COPY package*.json ./
@@ -17,17 +17,17 @@ FROM ubuntu:20.04.3
 
 #FROM digirolamo/microservices-sample:latest
 
-WORKDIR /usr/src/app
+WORKDIR /usr
 
-COPY package.json .
+#COPY package.json .
 #COPY  --chown=www-data:www-data  /Results /usr/src/app
-RUN npm install
+#RUN npm install
 #RUN chown 777 /microservices-sample/Results
 #RUN chown 777 /Results/Linux_Baseline_report.html
-#RUN chmod -R 777 Results
-COPY . ./
+RUN chmod -R 777 src
+#COPY . ./
 #COPY --from=digirolamoluca/microservices-sample:latest somefile somefile
 
 EXPOSE 3000
-CMD [ "npm", "start" ]
-#CMD [ "node", "index.js" ]
+#CMD [ "npm", "start" ]
+CMD [ "node", "index.js" ]
