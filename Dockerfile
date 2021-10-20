@@ -1,5 +1,5 @@
 
-FROM digirolamo/microservices-sample:latest
+FROM node:latest
 
 #WORKDIR /usr/src/app
 
