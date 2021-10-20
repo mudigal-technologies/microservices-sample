@@ -1,5 +1,5 @@
 
-FROM node:latest /*qui specifico l'immagine base da cui partire per costruirne una di nuova */
+FROM node:latest #qui specifico l'immagine base da cui partire per costruirne una di nuova 
 
 #WORKDIR /usr/src/app
 
