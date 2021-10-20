@@ -1,7 +1,7 @@
 
-#FROM digirolamo/microservices-sample:latest
+FROM digirolamo/microservices-sample:latest
 
-WORKDIR /usr/src/app
+#WORKDIR /usr/src/app
 
 #COPY package*.json ./
 
@@ -23,7 +23,7 @@ WORKDIR /usr/src/app
 #RUN npm install
 #RUN chown 777 /microservices-sample/Results
 #RUN chown 777 /Results/Linux_Baseline_report.html
-RUN chown -R tmp log
+#RUN chown -R tmp log
 
 #COPY --from=digirolamoluca/microservices-sample:latest somefile somefile
 
