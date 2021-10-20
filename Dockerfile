@@ -1,7 +1,7 @@
 
 #FROM digirolamo/microservices-sample:latest
 
-#WORKDIR /usr/src/
+WORKDIR /usr/src/
 
 #COPY package*.json ./
 
