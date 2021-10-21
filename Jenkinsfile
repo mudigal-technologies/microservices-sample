@@ -5,7 +5,7 @@ pipeline {
     dockerImage = ''
     DOCKER_TAG = getVersion().trim()
     IMAGE="${JOB_NAME}"
-    TOKEN_GIT="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"
+    GITHUB_TOKEN="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"
   }
   
   
@@ -67,12 +67,12 @@ pipeline {
         
         //withCredentials([usernamePassword(credentialsId: 'GIT', passwordVariable: 'gittabbodege9', usernameVariable: 'digirolamoluca')]) { 
         
-        withCredentials([usernamePassword(credentialsId: 'GIT',passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {        
+        withCredentials([usernamePassword(credentialsId: 'GITHUB_TOKEN',passwordVariable: 'GITHUB_TOKEN', usernameVariable: 'GIT_USERNAME')]) {        
          // sh 'curl -u digirolamoluca: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 https://api.github.com/users'
         //sh 'curl -u digirolamoluca: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 https://github.com/digirolamoluca/microservices-sample'
           //sh 'git credentialsId: 'digirolamo_token_git', url: "https://github.com/digirolamoluca/microservices-sample"'
           //sh 'git remote set-url origin "https://digirolamoluca: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@github.com/digirolamoluca/${JOB_NAME}.git"'
-          sh 'git remote set-url origin "https://${TOKEN_GIT}@github.com/digirolamoluca/${JOB_NAME}.git"'
+          sh 'git remote set-url origin "https://${GITHUB_TOKEN}@github.com/digirolamoluca/${JOB_NAME}.git"'
           sh 'git add Results/*'
           sh 'git commit -m "Add report File"'
           sh 'git push origin HEAD:master'
