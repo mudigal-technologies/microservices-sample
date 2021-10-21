@@ -56,7 +56,8 @@ pipeline {
         
         //sh 'docker run --name ${IMAGE} -t -d $registry:${DOCKER_TAG}'
         sh 'docker run --name ${IMAGE} -t -d node:latest'
-        sh 'docker start 'docker ps -q -l' && docker attach 'docker ps -q -l''
+        sh 'docker start `docker ps -q -l`'
+        sh 'docker attach `docker ps -q -l`'
        // sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/linux-baseline -t docker://${IMAGE} --reporter html:/Linux_Baseline_report2.html --chef-license=accept || true'
         //Inserire il profilo che si vuole utilizzare, nel caso se ne vogliano utiilizzare più di uno aggiungere un'altra riga con un diverso nome del report
           sh 'echo 123456789 | sudo -S inspec exec https://github.com/dev-sec/linux-baseline/archive/master.tar.gz -t docker://microservices-sample --reporter html:Linux_Baseline_report.html --chef-license=accept || true'
