@@ -6,7 +6,7 @@ WORKDIR /usr/src/app
 
 #COPY package*.json ./
 
-#RUN npm install
+RUN npm install
 
 #COPY  --chown=www-data:www-data /html /usr/src/
 #COPY . .
@@ -19,7 +19,7 @@ WORKDIR /usr/src/app
 
 
 
-COPY package.json .
+#COPY package.json .
 #COPY  --chown=www-data:www-data  /Results /usr/src/app
 #RUN npm install
 #RUN chown 777 /microservices-sample/Results
