@@ -30,4 +30,4 @@ WORKDIR /usr/src/app
 
 EXPOSE 3000
 #CMD [ "npm", "start" ]
-CMD [ "node", "index.js" ]
+#CMD [ "node", "index.js" ]
