@@ -19,7 +19,7 @@ WORKDIR /usr/src/app
 
 
 
-#COPY package.json .
+COPY package.json .
 #COPY  --chown=www-data:www-data  /Results /usr/src/app
 #RUN npm install
 #RUN chown 777 /microservices-sample/Results
@@ -30,4 +30,4 @@ WORKDIR /usr/src/app
 
 EXPOSE 3000
 #CMD [ "npm", "start" ]
-#CMD [ "node", "index.js" ]
+CMD [ "node", "index.js" ]
