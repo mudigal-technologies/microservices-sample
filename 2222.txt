@@ -1,0 +1,4 @@
+User-Agent: *
+Disallow: 
+
+Sitemap: http://vmudigal.github.io/microservices-sample/about/sitemap.xml
