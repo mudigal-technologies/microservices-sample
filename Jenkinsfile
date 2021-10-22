@@ -67,7 +67,7 @@ pipeline {
         //withCredentials([usernamePassword(credentialsId: 'GIT', passwordVariable: 'gittabbodege9', usernameVariable: 'digirolamoluca')]) { 
         
      //   withCredentials([usernamePassword(credentialsId: 'GITHUB_TOKEN',passwordVariable: 'GITHUB_TOKEN', usernameVariable: 'GIT_USERNAME')]) {        
-         sh 'curl -u digirolamoluca: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 https://api.github.com/users'
+         sh 'curl -u digirolamoluca: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 https://api.github.com/users'
         //sh 'curl -u digirolamoluca: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 https://github.com/digirolamoluca/microservices-sample'
           //sh 'git credentialsId: 'digirolamo_token_git', url: "https://github.com/digirolamoluca/microservices-sample"'
           //sh 'git remote set-url origin "https://digirolamoluca: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@github.com/digirolamoluca/${JOB_NAME}.git"'
