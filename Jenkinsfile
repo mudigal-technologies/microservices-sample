@@ -67,12 +67,12 @@ pipeline {
         //withCredentials([usernamePassword(credentialsId: 'GIT', passwordVariable: 'gittabbodege9', usernameVariable: 'digirolamoluca')]) { 
         
      //   withCredentials([usernamePassword(credentialsId: 'GITHUB_TOKEN',passwordVariable: 'GITHUB_TOKEN', usernameVariable: 'GIT_USERNAME')]) {        
-         //sh 'curl -u digirolamoluca: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 https://api.github.com/users'
+         sh 'curl -u digirolamoluca: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 https://api.github.com/users/digirolamoluca'
         //sh 'curl -u digirolamoluca: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 https://github.com/digirolamoluca/microservices-sample'
           //sh 'git credentialsId: 'digirolamo_token_git', url: "https://github.com/digirolamoluca/microservices-sample"'
           //sh 'git remote set-url origin "https://digirolamoluca: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@github.com/digirolamoluca/${JOB_NAME}.git"'
          // sh 'git remote set-url origin "https://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@github.com/digirolamoluca/${JOB_NAME}.git"'
-         sh 'curl https://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@github.com/digirolamoluca/microservices-sample.git'
+         //sh 'curl https://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@github.com/digirolamoluca/microservices-sample.git'
           sh 'git add Results/*'
           sh 'git commit -m "Add report File"'
           sh 'git push origin HEAD:master'
