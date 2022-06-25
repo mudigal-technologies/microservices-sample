@@ -1,8 +1,8 @@
 /* TEAM */
                            
-Name: Vijayendra Mudigal.                     
-Email: vijayendrap@gmail.com     
-Twitter: vmudigal.
+Organisation: Mudigal Technologies LLP
+URL: https://www.mudigal.com
+Email: contact@mudigal.com
 Location: Bengaluru, India.
 
 /* SITE */

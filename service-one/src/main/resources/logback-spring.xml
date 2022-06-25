@@ -19,7 +19,7 @@
 	<springProfile name="docker">
 		<appender name="STASH"
 			class="net.logstash.logback.appender.LogstashTcpSocketAppender">
-			<destination>logstash:5000</destination>
+			<destination>logstash:5001</destination>
 		    <!-- encoder is required -->
 		    <encoder class="net.logstash.logback.encoder.LogstashEncoder">
 	            <includeCallerInfo>true</includeCallerInfo>

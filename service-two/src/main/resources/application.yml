@@ -86,7 +86,7 @@ spring:
     virtualHost: /
 
 logstash:
-  servers: logstash:5000
+  servers: logstash:5001
 
 logging:
   file: service-two-application.log

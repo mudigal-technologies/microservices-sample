@@ -45,7 +45,8 @@ services:
   service-one-db:
     container_name: "service-one-db"
     hostname: "serviceonedb"
-    image: "mongo:3.7"
+    image: "mongo:4.2.21"
+    platform: linux/arm64/v8
     environment:
       - MONGODB_USER="service-one" 
       - MONGODB_PASS="service-one"
@@ -57,7 +58,7 @@ services:
       - "27017:27017"
     expose:
       - "27017"
-    command: mongod --smallfiles 
+    command: mongod
     #--logpath=/dev/null --sslDisabledProtocols 'none'
     networks:
       - backend
@@ -87,7 +88,8 @@ services:
   service-two-db:
     container_name: "service-two-db"
     hostname: "servicetwodb"
-    image: "mysql/mysql-server:5.7"
+    image: "mysql/mysql-server:latest"
+    platform: linux/arm64/v8
     environment:
       - MYSQL_ROOT_PASSWORD=root123
       - MYSQL_DATABASE=service-two
@@ -105,7 +107,8 @@ services:
   # ---------------------------
   web-application:
     container_name: web-application
-    image: nginx:1.18.0-alpine
+    image: nginx:1.23.0-alpine
+    platform: linux/arm64/v8
     build:
       context: ../../web-application
       dockerfile: docker/Dockerfile
@@ -121,7 +124,8 @@ services:
   # Messaging Queue Cluster
   # ---------------------------
   rabbit:
-    image: rabbitmq:3.8-management-alpine
+    image: rabbitmq:3.9.20-management-alpine
+    platform: linux/arm64/v8
     container_name: rabbit-mq
     hostname: rabbitmq
     ports:
@@ -143,7 +147,8 @@ services:
   # Discovery Cluster
   # ---------------------------
   consul:
-    image: consul:1.7.3
+    image: consul:1.12.2
+    platform: linux/arm64/v8
     container_name: "consul"
     hostname: "consul"
     command: consul agent -server -client 0.0.0.0 -ui -bootstrap-expect=3 -data-dir=/consul/data -retry-join=consul2 -retry-join=consul3 -datacenter=blr
@@ -153,7 +158,8 @@ services:
     networks:
       - backend
   consul2:
-    image: consul:1.7.3
+    image: consul:1.12.2
+    platform: linux/arm64/v8
     container_name: "consul-2"
     hostname: "consul2"
     expose:
@@ -165,7 +171,8 @@ services:
     networks:
       - backend
   consul3:
-    image: consul:1.7.3
+    image: consul:1.12.2
+    platform: linux/arm64/v8
     container_name: "consul-3"
     hostname: "consul3"
     expose:
@@ -182,7 +189,7 @@ services:
   # Infrastructure Visualization
   # -----------------------------
   scope:
-    image: weaveworks/scope:1.13.1
+    image: weaveworks/scope:latest
     container_name: weave-scope
     hostname: weave-scope
     pid: "host"
@@ -205,7 +212,8 @@ services:
   # Log Vizualization 
   # -----------------------------
   kibana:
-    image: kibana:7.7.0
+    image: kibana:8.2.3
+    platform: linux/arm64/v8
     container_name: kibana
     hostname: kibana
     ports:
@@ -223,13 +231,14 @@ services:
   # Indexing Server
   # -----------------------------
   elasticsearch:
-    image: elasticsearch:7.7.0
+    image: elasticsearch:8.2.3
+    platform: linux/arm64/v8
     container_name: elasticsearch
     hostname: elasticsearch
     environment:
       - "cluster.name=elasticsearch"
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-      - "discovery.zen.ping.unicast.hosts=127.0.0.1"
+      # - "discovery.zen.ping.unicast.hosts=127.0.0.1"
       - "discovery.type=single-node"
     ulimits:
       memlock:
@@ -250,17 +259,18 @@ services:
   # Log Collection and Format
   # -----------------------------
   logstash:
-    image: logstash:7.7.0
+    image: logstash:8.2.3
+    platform: linux/arm64/v8
     container_name: log-stash
     hostname: logstash
     ports:
-      - "5000:5000"
+      - "5001:5001"
     expose:
-      - "5000"
+      - "5001"
     volumes:
       - /Users/Shared/data/tools/logstash/:/tmp/
     command: >
-      logstash --debug -e 'input { tcp { port => 5000 codec => json { charset => "UTF-8" } } } output { elasticsearch { hosts => "elasticsearch:9200" } }'
+      logstash --debug -e 'input { tcp { port => 5001 codec => json { charset => "UTF-8" } } } output { elasticsearch { hosts => "elasticsearch:9200" } }'
     depends_on:
       - elasticsearch
     networks:

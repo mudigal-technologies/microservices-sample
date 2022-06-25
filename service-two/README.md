@@ -10,15 +10,15 @@ Below are the architecture of the application in different environments:
 
 #### Default Environment
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-5/service-two/doc/architecture/service-two%20(default).png?raw=true)   
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/service-two/doc/architecture/service-two%20(default).png?raw=true)   
 
 Execute `mvn clean install spring-boot:run` to bring up the application in default environment
 
 #### Docker Environment
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-5/service-two/doc/architecture/service-two%20(docker).png?raw=true)   
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/service-two/doc/architecture/service-two%20(docker).png?raw=true)   
 
-Refer: https://github.com/vmudigal/microservices-sample to bring up the micro services sample complete application using docker profile.
+Refer: https://github.com/mudigal-technologies/microservices-sample to bring up the micro services sample complete application using docker profile.
 
 ### Extras
 
@@ -26,21 +26,21 @@ Refer: https://github.com/vmudigal/microservices-sample to bring up the micro se
 
 http://localhost:8084/swagger-ui.html
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-5/service-two/doc/tools/swagger.png?raw=true)   
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/service-two/doc/tools/swagger.png?raw=true)   
 
 ##### H2 Console
 
 Access the h2 database through web client: http://localhost:8084/h2
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-5/service-two/doc/tools/h2-login.png?raw=true)   
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/service-two/doc/tools/h2-login.png?raw=true)   
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-5/service-two/doc/tools/h2.png?raw=true)   
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/service-two/doc/tools/h2.png?raw=true)   
 
 ### Technology
 
 Microservices sample project uses a number of open source projects to work properly:
 
-* [SpringBoot 2.3] - Application Framework
+* [SpringBoot] - Application Framework
 * [Project Reactor] - Reactive Systems
 * [Docker] - Containerization Platform
 * [Consul] - Registration & Discovery
@@ -61,7 +61,7 @@ Microservices sample project uses a number of open source projects to work prope
 
 ### Help
 
-Feel free to reach "vijayendrap@gmail.com" incase of any concerns.
+Feel free to reach "contact@mudigal.com" incase of any concerns.
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job.)
 

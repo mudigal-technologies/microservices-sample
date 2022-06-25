@@ -35,7 +35,7 @@ class SwaggerConfig {
     return new ApiInfoBuilder().title("Microservices Sample - Service One").description(
         "API documentation for service one reactive service with mongo database")
                 .termsOfServiceUrl("#")
-        .contact(new Contact("Vijayendra Mudigal", "https://vijayendra.mudigal.com", "vijayendrap@gmail.com.com"))
+        .contact(new Contact("Mudigal Technologies LLP", "https://www.mudigal.com", "contact@mudigal.com.com"))
         .license("Apache License 2.0")
         .licenseUrl("#").version("5.0.0")
         .build();
