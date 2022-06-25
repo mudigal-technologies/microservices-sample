@@ -11,8 +11,8 @@ import {Router} from '@angular/router';
 export class DataComponent implements OnInit {
 
   objectKeys = Object.keys;
-  response: DataResponse;
-  error: string;
+  response!: DataResponse;
+  error!: string;
 
   constructor(private gatewayService: GatewayService,
               private router: Router) {
@@ -24,7 +24,7 @@ export class DataComponent implements OnInit {
     console.log('Current URL: ' + currentUrl);
   }
 
-  getData(service) {
+  getData(service: string) {
     this.gatewayService.getData(service).subscribe(
       data => {
         console.log(data);
@@ -42,5 +42,5 @@ export class DataComponent implements OnInit {
 export interface DataResponse {
   originalName: string;
   originalValue: string;
-  remainingNameValuePair: any[];
+  remainingNameValuePair: string[];
 }

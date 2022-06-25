@@ -10,7 +10,7 @@ import { HomeComponent } from './component/home/home.component';
 import { GatewayService } from './service/gateway/gateway.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './component/header/header.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -30,8 +30,8 @@ export const appRoutes: Routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
-    FontAwesomeModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule
   ],
   providers: [GatewayService],
   bootstrap: [AppComponent]
