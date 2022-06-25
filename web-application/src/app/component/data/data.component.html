@@ -2,9 +2,8 @@
   <h3 style="text-align: center; margin-top: 100px; color: grey">
     {{response.originalName}} : {{response.originalValue}}</h3>
   <div style="margin-top: 25px;">
-    <div style="text-align: center; margin-top: 5px; color: #ff9800"
-         *ngFor="let key of objectKeys(response.remainingNameValuePair)">
-      {{key}} : {{response.remainingNameValuePair[key]}
+    <div style="text-align: center; margin-top: 5px; color: #ff9800">
+      {{response.remainingNameValuePair | json}}
     </div>
   </div>
 </div>

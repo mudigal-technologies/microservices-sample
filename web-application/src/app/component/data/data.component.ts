@@ -42,5 +42,5 @@ export class DataComponent implements OnInit {
 export interface DataResponse {
   originalName: string;
   originalValue: string;
-  remainingNameValuePair: string[];
+  remainingNameValuePair: any;
 }
