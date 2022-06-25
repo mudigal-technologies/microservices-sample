@@ -1,5 +1,5 @@
 # Create image based on the official Node 12 image from dockerhub
-FROM node:12-alpine
+FROM node:18-alpine
 
 LABEL author="Vijayendra Mudigal"
 MAINTAINER contact@mudigal.com

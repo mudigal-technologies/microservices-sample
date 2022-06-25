@@ -17,8 +17,8 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
     "watch": "ng build --watch --configuration development",
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
