@@ -9,15 +9,15 @@ Below are the architecture of the application in different environments:
 
 #### Default Environment
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-5/service-one/doc/architecture/service-one%20(default).png?raw=true)   
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/service-one/doc/architecture/service-one%20(default).png?raw=true)   
 
 Execute mvn build spring-boot:run to bring up the application in default environment
 
 #### Docker Environment
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-5/service-one/doc/architecture/service-one%20(docker).png?raw=true)   
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/service-one/doc/architecture/service-one%20(docker).png?raw=true)   
 
-Refer: https://github.com/vmudigal/microservices-sample/ to bring up the micro services sample complete application using docker profile.
+Refer: https://github.com/mudigal-technologies/microservices-sample/ to bring up the micro services sample complete application using docker profile.
 
 ### Technology
 
@@ -46,20 +46,20 @@ Microservices sample project uses a number of open source projects to work prope
 
 http://localhost:8082/swagger-ui.html
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-5/service-one/doc/tools/swagger.png?raw=true)   
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/service-one/doc/tools/swagger.png?raw=true)   
 
 ##### Embedded MongoDB
 
 Access the database through a mongodb client.
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-5/service-one/doc/tools/mongodb-login.png?raw=true)   
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/service-one/doc/tools/mongodb-login.png?raw=true)   
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-5/service-one/doc/tools/mongodb.png?raw=true)   
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/service-one/doc/tools/mongodb.png?raw=true)   
 
 
 ### Help
 
-Feel free to reach "vijayendrap@gmail.com" in-case of any concerns.
+Feel free to reach "contact@mudigal.com" in-case of any concerns.
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job.)
 

@@ -1,6 +1,6 @@
 # Microservices Sample
 
-[![Build Status](https://travis-ci.org/vmudigal/microservices-sample.svg?branch=master)](https://travis-ci.org/vmudigal/microservices-sample)
+[![Build Status](https://travis-ci.org/mudigal-technologies/microservices-sample.svg?branch=master)](https://travis-ci.org/mudigal-technologies/microservices-sample)
 [![Docker Repository on Quay](https://quay.io/repository/microservices-sample/api-gateway/status "Docker Repository on Quay")](https://quay.io/repository/microservices-sample/api-gateway)
 [![Docker Repository on Quay](https://quay.io/repository/microservices-sample/service-one/status "Docker Repository on Quay")](https://quay.io/repository/microservices-sample/service-one)
 [![Docker Repository on Quay](https://quay.io/repository/microservices-sample/service-two/status "Docker Repository on Quay")](https://quay.io/repository/microservices-sample/service-two)
@@ -26,33 +26,33 @@ The sample application has two services namely service-one and service-two. Each
 
 Below are the screens of the application.
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-5/documents/screens/_Web%20App/01.%20Home.png?raw=true)
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/documents/screens/_Web%20App/01.%20Home.png?raw=true)
 
 Clicking on the tab's one or two the data that you see on the screen is based on the data fetched by the respective service by calling its database.
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-5/documents/screens/_Web%20App/02.%20One.png?raw=true)
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/documents/screens/_Web%20App/02.%20One.png?raw=true)
 
 Notice that the UUID generated for service-one which lies in service-one-db is in sync with service-two tab which is achieved by RabbitMQ (asychronous communication between microservices). 
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-5/documents/screens/_Web%20App/03.%20Two.png?raw=true)
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/documents/screens/_Web%20App/03.%20Two.png?raw=true)
 
 ### Service Registration
 
 During the initialization of a service, it would get registered to the discovery and registration server (which in our example is Hashicorp's Consul).
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-5/documents/sequence-diagram/microservices-sample%20(service%20registration%20sequence).png?raw=true)
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/documents/sequence-diagram/microservices-sample%20(service%20registration%20sequence).png?raw=true)
 
 #### Service Discovery
 
  When one service (say api-gateway) needs to access a resource from another service (say service-one), all it has to do is ask discovery and registration server (Consul) to give one of the service-one's instance information.
  
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-5/documents/sequence-diagram/microservices-sample%20(service%20discovery%20sequence).png?raw=true)
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/documents/sequence-diagram/microservices-sample%20(service%20discovery%20sequence).png?raw=true)
 
 ### Architecture
 
 Below is the architectural diagram for microservices sample project.
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-5/documents/architecture/Infrastructure.png?raw=true)
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/documents/architecture/Infrastructure.png?raw=true)
 
 ### Components Integrated & Tools Usage   
 ##### API Gateway
@@ -95,7 +95,7 @@ spring:
 ```
 Consul management console can be accessed at http://localhost:8500/ui/ 
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-5/documents/screens/Consul/consul.png?raw=true)
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/documents/screens/Consul/consul.png?raw=true)
  
 ##### Monitoring and vizualization
 
@@ -103,7 +103,7 @@ Monitoring, visualisation & management of the container in docker is done by wea
 
 Weavescope management console can be accessed at http://localhost:4040/   
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-5/documents/screens/Weavescope/weavescope.png?raw=true)
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/documents/screens/Weavescope/weavescope.png?raw=true)
 
 ##### Centralized logging using ELK
 
@@ -115,7 +115,23 @@ Elasticsearch: http://localhost:9200/_search?pretty
 
 Kibana: http://localhost:5601/app/kibana
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-5/documents/screens/Kibana/kibana.png?raw=true)
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/documents/screens/Kibana/0.png?raw=true)
+
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/documents/screens/Kibana/1.png?raw=true)
+
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/documents/screens/Kibana/2.png?raw=true)
+
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/documents/screens/Kibana/3.png?raw=true)
+
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/documents/screens/Kibana/4.png?raw=true)
+
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/documents/screens/Kibana/5.png?raw=true)
+
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/documents/screens/Kibana/6.png?raw=true)
+
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/documents/screens/Kibana/7.png?raw=true)
+
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/documents/screens/Kibana/kibana.png?raw=true)
 
 ##### Asynchronous microservices communication  
 
@@ -123,7 +139,11 @@ Intercommunication between microservices happens asynchronously with the help of
 
 RabbitMQ console can be accessed at http://localhost:15672/
 
-![alt tag](https://github.com/vmudigal/microservices-sample/blob/version-5/documents/screens/RabbitMQ/3.rabbit-queues.png?raw=true)
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/documents/screens/RabbitMQ/1.rabbit-overview.png?raw=true)
+
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/documents/screens/RabbitMQ/2.rabbit-xchange.png?raw=true)
+
+![alt tag](https://github.com/mudigal-technologies/microservices-sample/blob/version-5/documents/screens/RabbitMQ/3.rabbit-queues.png?raw=true)
 
 ### Technology
 
@@ -154,7 +174,7 @@ Microservices sample project uses a number of open source projects to work prope
 Below are the steps to bring up the development environment and get started.
 
 1) Install Git, Java, Maven and Docker</br>
-2) For the project using https://github.com/vmudigal/microservices-sample.git
+2) For the project using https://github.com/mudigal-technologies/microservices-sample.git
 3) Clone the fork using https://github.com/{YOUR_GIT_ID}/microservices-sample.git</br>
 4) Execute "cd /microservices-sample/build/docker/scripts/"</br>
 5) To deploy docker please run "./deploy.sh docker".</br>
@@ -176,12 +196,13 @@ mysql> SELECT * FROM name_value;
 
 ### Help
 
-Feel free to reach "vijayendrap@gmail.com" incase of any concerns.
+Feel free to reach "[MUDIGAL TECHNOLOGIES LLP]" at "contact@mudigal.com" incase of any concerns.
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job.)
 
-   [Bootstrap]: <http://twitter.github.com/bootstrap/>
-   [jQuery]: <http://jquery.com>
+   [MUDIGAL TECHNOLOGIES LLP]: <https://www.mudigal.com>
+   [Bootstrap]: <https://twitter.github.com/bootstrap/>
+   [jQuery]: <https://jquery.com>
    [Angular]: <https://angular.io/>
    [SpringBoot]: <https://projects.spring.io/spring-boot/>
    [Consul]: <https://www.consul.io>

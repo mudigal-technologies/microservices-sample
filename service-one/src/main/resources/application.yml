@@ -64,7 +64,7 @@ spring:
     password: mudigal
     virtualHost: /
 
-logstash.servers: logstash:5000
+logstash.servers: logstash:5001
 
 logging:
   level:

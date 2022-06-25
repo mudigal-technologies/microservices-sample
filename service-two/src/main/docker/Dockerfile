@@ -1,7 +1,8 @@
-FROM openjdk:8-jre-alpine
+ARG arch=linux/arm64/v8
+FROM --platform=${arch} openjdk:8-jre-alpine
 
-LABEL author="Vijayendra Mudigal"
-MAINTAINER vijayendrap@gmail.com
+LABEL vendor="Mudigal Technologies LLP" authors="Vijayendra Mudigal"
+LABEL org.opencontainers.image.authors="vijayendra@mudigal.com"
 
 # environment
 EXPOSE 8084
